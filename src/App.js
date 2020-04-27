@@ -5,7 +5,9 @@ import Score from './components/Score';
 import './App.css';
 
 
-function App() {
+class App extends React.Component {
+
+
 
 // states GetUsername, GetAPI, GetQuestions, GetAnswers, GetScore
 
@@ -16,7 +18,7 @@ function App() {
 // GetAnswers function
 
 // GetScore function
-
+render() {
   return (
     <div className="container">
       <UserInfo />
@@ -24,6 +26,7 @@ function App() {
       <Score />
     </div>
   );
+}
 }
 
 export default App;
