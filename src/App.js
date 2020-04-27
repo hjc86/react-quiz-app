@@ -12,6 +12,10 @@ constructor(props){
   super(props);
   this.state = {
       QuizQ : []
+
+
+
+
   };
 }
 
@@ -31,6 +35,13 @@ getQuizApi = async () => {
 }
 
 
+getUserData= (userData) => {
+  console.log("information from <UserInfor>", userData )
+
+
+}
+
+
 componentDidMount(){
   this.getQuizApi();
 }
@@ -40,14 +51,13 @@ componentDidMount(){
     render() {
       return (
         <div className="container">
-          <UserInfo />
+          <UserInfo userData={this.getUserData}/>
           {this.state.QuizQ.map(questions => <Quiz questions={questions.question} />)}
           <Score />
         </div>
       );
 }
 
-}
 }
 
 export default App;

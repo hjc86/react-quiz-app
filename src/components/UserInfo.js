@@ -18,6 +18,8 @@ class UserInfo extends React.Component{
             username: event.target[0].value
         })
 
+        this.props.userData(this.state)
+
     }
 
     handleChange = (event) => {
