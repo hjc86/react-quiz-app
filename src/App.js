@@ -36,6 +36,7 @@ componentDidMount(){
 }
 
 
+
     render() {
       return (
         <div className="container">
@@ -44,6 +45,8 @@ componentDidMount(){
           <Score />
         </div>
       );
+}
+
 }
 }
 
