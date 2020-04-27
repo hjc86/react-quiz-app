@@ -3,7 +3,7 @@ import styles from './Quiz.module.css';
 
 class Quiz extends React.Component {
 
-  
+
     render() {
       return (
       <div className={styles.quizDiv}>
