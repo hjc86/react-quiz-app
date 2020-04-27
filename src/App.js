@@ -20,8 +20,8 @@ getQuizApi = async () => {
 
   const categoryNumber = 11;
   const difficulty = "easy";
-  // const categoryNumber = e.target.elements.city.value;
-  // const difficulty = e.target.elements.country.value;
+  // const categoryNumber = e.target.elements.categoryNumber.value;
+  // const difficulty = e.target.elements.difficulty.value;
   const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
   const data = await apiCall.json();
  
@@ -40,7 +40,6 @@ componentDidMount(){
       return (
         <div className="container">
           <UserInfo />
-
           {this.state.QuizQ.map(questions => <Quiz questions={questions.question} />)}
           <Score />
         </div>
