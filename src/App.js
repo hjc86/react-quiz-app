@@ -11,11 +11,8 @@ class App extends React.Component {
 constructor(props){
   super(props);
   this.state = {
-      QuizQ : []
-
-
-
-
+      QuizQ : [],
+      Answers : []
   };
 }
 
@@ -30,7 +27,12 @@ getQuizApi = async () => {
   const data = await apiCall.json();
  
   // to get the whole data 
-  this.setState({QuizQ : data.results});
+  this.setState({
+    QuizQ : data.results,
+    Answers : data.results[0].correct_answer,
+    IncorrectAnswers : data.results[0].incorrect_answers
+  
+  });
   console.log(data);
 }
 
@@ -52,7 +54,7 @@ componentDidMount(){
       return (
         <div className="container">
           <UserInfo userData={this.getUserData}/>
-          {this.state.QuizQ.map(questions => <Quiz questions={questions.question} />)}
+          {this.state.QuizQ.map(questions => <Quiz questions={questions.question} answers={questions.correct_answer} incorrect={questions.incorrect_answers}/>)}
           <Score />
         </div>
       );
@@ -62,3 +64,4 @@ componentDidMount(){
 
 export default App;
 
+// answers={questions.correct_answer}

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Quiz Renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Quiz renders correctly 1`] = `
+<div
+  className="quizDiv"
+>
+  <h3
+    className="question"
+  >
+    Question : 
+  </h3>
+  <h3
+    className="question"
+  >
+    \`Answer : 
+     
+    \`
+  </h3>
+</div>
+`;
