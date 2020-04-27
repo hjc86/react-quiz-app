@@ -5,25 +5,48 @@ import Score from './components/Score';
 import './App.css';
 
 
-function App() {
+class App extends React.Component {
 
 // states GetUsername, GetAPI, GetQuestions, GetAnswers, GetScore
+constructor(props){
+  super(props);
+  this.state = {
+      QuizQ : []
+  };
+}
 
-// GetAPI function
+// Fetch API
+getQuizApi = async () => {
 
-// GetQuestions function
+  const categoryNumber = 11;
+  const difficulty = "easy";
+  // const categoryNumber = e.target.elements.city.value;
+  // const difficulty = e.target.elements.country.value;
+  const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+  const data = await apiCall.json();
+ 
+  // to get the whole data 
+  this.setState({QuizQ : data.results});
+  console.log(data);
+}
 
-// GetAnswers function
 
-// GetScore function
+componentDidMount(){
+  this.getQuizApi();
+}
 
-  return (
-    <div className="container">
-      <UserInfo />
-      <Quiz />
-      <Score />
-    </div>
-  );
+
+    render() {
+      return (
+        <div className="container">
+          <UserInfo />
+
+          {this.state.QuizQ.map(questions => <Quiz questions={questions.question} />)}
+          <Score />
+        </div>
+      );
+}
 }
 
 export default App;
+

@@ -6,6 +6,7 @@ class UserInfo extends React.Component{
 
         return( 
             <div>UserInfo</div>
+            
 
         )
     }

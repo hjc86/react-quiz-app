@@ -1,13 +1,13 @@
 import React from 'react';
 
-
-class Quiz extends React.Component{
+class Quiz extends React.Component {
     render() {
-
-        return(
-            <div>Quiz</div>
-        )
+      return (
+      <div>
+      <h3>Question : {this.props.questions}</h3>
+      </div>
+      )
     }
-}
+  }
 
 export default Quiz;
