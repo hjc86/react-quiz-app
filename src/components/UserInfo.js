@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ReactDOM from 'react-dom'
 
 class UserInfo extends React.Component{
 
@@ -8,61 +8,52 @@ class UserInfo extends React.Component{
 
         // set states for each user data
         this.state = {
-            username : null,
+            userName : null,
             difficulty: null,
             category: null
         }
     }
 
-        // function to take in userdata
-    getUserData = (event) => {
-        event.preventDefault();
+
+    playerData = (event) => {
+            event.preventDefault();
+
+            const node = ReactDOM.findDOMNode(this);
+        
+            // console.log("catergory", node.querySelector('#category').value)
+            // console.log("radio value", node.querySelectorAll("input[type=radio]:checked")[0].value)
     
-        // calling to trigger the function in App.js (playerData)
-        this.props.playerData(this.state);
+            const userDataObj={
+                userName: node.querySelector('#username').value,
+                category: node.querySelector('#category').value,
+                difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value
+            }
+    
+            this.props.playerData(userDataObj)
+  
     }
 
-    //functions to set state on each input change
-
-    handleUser = (e) => {
-        this.setState({
-            username: e.target.value
-        });
-    }
-
-    handleDifficulty = (e) => {
-        this.setState({
-            difficulty: e.target.value
-        });
-    }
-
-    handleCategory = (e) => {
-        this.setState({
-            category: e.target.value
-
-        }); console.log(e);
-    }
 
 
     render() {
         
         return( 
             <div className= "formDiv">
-                <form onSubmit={this.getUserData}>
+                <form onSubmit={this.playerData}>
                     <label>Username:</label>
-                    <input type="text" name="username" id="username" onChange={this.handleUser} required={true} />
+                    <input type="text" name="username" id="username" required={true} />
 
                     <p>Level of Difficulty:</p>
                     <label>Easy</label>
-                    <input type="radio" name="difficulty" id="easy" value="easy" checked={this.state.difficulty === "easy"} onChange={this.handleDifficulty}required={true} />
+                    <input type="radio" name="difficulty" id="easy" value="easy" required={true} />
                     <label>Medium</label>
-                    <input type="radio" name="difficulty" id="medium" value="medium" checked={this.state.difficulty === "medium"} onChange={this.handleDifficulty} />
+                    <input type="radio" name="difficulty" id="medium" value="medium"/>
                     <label>Difficult</label>
-                    <input type="radio" name="difficulty" id="difficult" value="hard" checked={this.state.difficulty === "hard"} onChange={this.handleDifficulty}/>
+                    <input type="radio" name="difficulty" id="difficult" value="hard"/>
 
                     {/* dropdown for categories */}
-                    <select id="category" name="category" onChange={this.handleCategory} value={this.state.category} >
-                        <option value=""> Please Chose Category</option>
+                    <select id="category" name="category" value={this.state.category} >
+                        <option value=""> Please Choose Category</option>
                         <option value="26">Celebrity</option>
                         <option value="20">Mythodology</option>
                         <option value="23">History</option>
