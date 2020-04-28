@@ -10,7 +10,8 @@ export default class Question extends Component {
             randomisedAnswers:null,
             correctAnswer: null,
             wrongAnswers: null,
-            backgroundStyle: "none"
+            backgroundStyle: "none",
+            clicked: false
         }
         
 
@@ -99,7 +100,13 @@ export default class Question extends Component {
         // }
     }
 
+    hasBeenClicked =()=>{
+        this.setState({
+            clicked: true
+        })
+        console.log("already clicked")
 
+    }
     
     
     
@@ -112,7 +119,7 @@ export default class Question extends Component {
 
      
     
-       
+       console.log("clcikd state", this.state.clicked)
         return (
             
             <div>
@@ -120,21 +127,19 @@ export default class Question extends Component {
           
             {this.state.randomisedAnswers === null ? "waiting for quiz generation" :
             
-            <React.Fragment>
-                <div className="question">
-                            
-                            {this.props.questionData.question}   
+                <React.Fragment>
+                    <div className="question">
+                                
+                                {this.props.questionData.question}   
 
-                            </div>
-                            {this.state.randomisedAnswers.map((answer)=> (
-                            <Answer answer={answer} {...this.state}/> 
-                            ))}
+                    </div>
 
-                            
-                        
+                    {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
+                    {this.state.randomisedAnswers.map((answer)=> (
+                    <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} /> 
+                    ))}
 
-
-            </React.Fragment>
+                </React.Fragment>
            
             }
             

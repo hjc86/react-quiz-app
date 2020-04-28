@@ -40,6 +40,8 @@ class Answer extends Component {
                 backgroundStyle: "red"
             })
         }
+         
+        this.props.clicked(true)
 
     
     }
@@ -47,7 +49,8 @@ class Answer extends Component {
     
     render() {
         return (
-      
+
+                
                 <div className= "answers">
                     <p onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle}}>{this.props.answer}</p>
                 </div>
