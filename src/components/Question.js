@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from "react-dom"
 
 export default class Question extends Component {
     constructor(props){
@@ -6,7 +7,8 @@ export default class Question extends Component {
         
         this.state={
             randomisedAnswers:null,
-            correctAnswer: null
+            correctAnswer: null,
+            wrongAnswers: null
         }
         
 
@@ -20,8 +22,12 @@ export default class Question extends Component {
        let answerArray= questionData.incorrect_answers.concat([questionData.correct_answer])
        let arr = this.getRandomArray(answerArray)
 
-       this.setState({
-            randomisedAnswers: arr}
+        this.setState(
+            {
+                randomisedAnswers: arr,
+                correctAnswer: questionData.correct_answer,
+                wrongAnswers: questionData.incorrect_answers
+            }
         ) 
     }
     
@@ -37,7 +43,7 @@ export default class Question extends Component {
                 randomisedAnswers.push(array[randomIndex])
             };   
         }
-        console.log("randpomised indicies",questionAnswerIndicies)
+        console.log("randomised indicies",questionAnswerIndicies)
         return randomisedAnswers
 
       
@@ -50,22 +56,78 @@ export default class Question extends Component {
 
     }
 
+    checkCorrect = (event) => {
+        console.log(event.target.innerText)
+        console.log(this.state.correctAnswer)
+
+        const node = ReactDOM.findDOMNode(this)//.findDOMNode(".answers");
+
+        console.log(node.querySelectorAll('.answer'))
+        
+        
+        //if(this.state.correctAnswer.includes([event.target.innerText])){
+        if(event.target.innerText === this.state.correctAnswer){
+        //correct answer cliccked
+        
+            console.log("correct answer clicked")
+            //change color of 
+        }else{
+            console.log("wrong answer")
+
+        }
+
+        //if(event.target.innerText === this.state.correctAnswer){
+            
+            
+
+        // answer is correct make bckgound greend make the rest red     
+    
+        // }else{
+        //     all elemnts 
+        //     //make correct answer grenn and all rest red
+        // }
+    }
+
+
+    
+    
+    
+    //if click on right answer:
+        //- clicked answer goes green, all the res go red
+    //else if click on wrong answe:
+        // right answer goes green all the rest gor red
+    
     render() {
 
+     
+    
        
         return (
             
-            this.state.randomisedAnswers === null ? "waiting for quiz generation" :
-        
-        
-          
             <div>
+
+          
+            {this.state.randomisedAnswers === null ? "waiting for quiz generation" :
+                <React.Fragment>
+    
+                <div className="question">
+                
+                {this.props.questionData.question}   
+
+                </div>
+                
+                <div className= "answers">
+                    {this.state.randomisedAnswers.map((answer)=> (
+                    <p className="answer" onClick={this.checkCorrect} >{answer} </p>))
+                    }
+
+                </div>
+                </React.Fragment>
             
-            {this.props.questionData.question}    
-            {this.state.randomisedAnswers.map((answer)=> (<p>{answer}</p>))}
-
+            }
+            
+            
             </div>
-
         
         )
     }

@@ -18,11 +18,11 @@ class UserInfo extends React.Component{
     getUserData = (event) => {
         event.preventDefault();
     
-        // calling to trigger the function in App.js (FormSubmit)
+        // calling to trigger the function in App.js (playerData)
         this.props.playerData(this.state);
     }
 
-    // create function to take in values for each input
+    //functions to set state on each input change
 
     handleUser = (e) => {
         this.setState({
