@@ -14,7 +14,7 @@ class UserInfo extends React.Component{
         }
     }
 
-        // function to take in data
+        // function to take in userdata
     getUserData = (event) => {
         event.preventDefault();
     
@@ -22,7 +22,7 @@ class UserInfo extends React.Component{
         this.props.onSubmit(this.state);
     }
 
-    // create handlechange 
+    // create function to take in values for each input
 
     handleUser = (e) => {
         this.setState({
@@ -47,7 +47,7 @@ class UserInfo extends React.Component{
     render() {
         
         return( 
-            <div>
+            <div className= "formDiv">
                 <form onSubmit={this.getUserData}>
                     <label>Username:</label>
                     <input type="text" name="username" id="username" onChange={this.handleUser} />
@@ -58,7 +58,7 @@ class UserInfo extends React.Component{
                     <label>Medium</label>
                     <input type="radio" name="difficulty" id="medium" value="medium" checked={this.state.difficulty === "medium"} onChange={this.handleDifficulty} />
                     <label>Difficult</label>
-                    <input type="radio" name="difficulty" id="difficult" value="difficult" checked={this.state.difficulty === "difficult"} onChange={this.handleDifficulty}/>
+                    <input type="radio" name="difficulty" id="difficult" value="hard" checked={this.state.difficulty === "hard"} onChange={this.handleDifficulty}/>
 
                     {/* dropdown for categories */}
                     <select id="category" name="category" onChange={this.handleCategory.bind(this)} value={this.state.category}>

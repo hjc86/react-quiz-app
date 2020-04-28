@@ -45,9 +45,9 @@ getUserData =(userDataObj) =>{
   // console.log("before update",this.state)
 }
 
-componentDidUpdate(){
-  // console.log("after update",this.state)
-}
+// componentDidUpdate(){
+// console.log("after update",this.state)
+// }
 
 
 formSubmitted = (state) => {
@@ -70,7 +70,7 @@ formSubmitted = (state) => {
           {this.state.QuizQ.map(questions => {
             const answers = [questions.correct_answer, ...questions.incorrect_answers]
             console.log(answers);
-            return <Quiz questions={questions.question} answers={questions.correct_answer} incorrect={questions.incorrect_answers}/>
+            return <Quiz questions={questions.question} answers={answers}/>
           })
           }
           <Score />
