@@ -19,9 +19,6 @@ class UserInfo extends React.Component{
             event.preventDefault();
 
             const node = ReactDOM.findDOMNode(this);
-        
-            // console.log("catergory", node.querySelector('#category').value)
-            // console.log("radio value", node.querySelectorAll("input[type=radio]:checked")[0].value)
     
             const userDataObj={
                 userName: node.querySelector('#username').value,
@@ -33,14 +30,12 @@ class UserInfo extends React.Component{
   
     }
 
-
-
     render() {
         
         return( 
             <div className= "formDiv">
                 <form onSubmit={this.playerData}>
-                    <label>Username:</label>
+                    <label>Username(s):</label>
                     <input type="text" name="username" id="username" required={true} />
 
                     <p>Level of Difficulty:</p>

@@ -10,38 +10,37 @@ class Answer extends Component {
 
         this.state={
             backgroundStyle: "none"
+            
         }
 
     }
 
-    checkCorrect = (event) => {
+     checkCorrect = async (event) => {
+
         console.log(event.target.innerText)
         console.log(this.props.correctAnswer)
-
         const node = ReactDOM.findDOMNode(this)//.findDOMNode(".answers");
-
         console.log(node.querySelectorAll('.answer'))
         
+        let backgroundStyle;
+        let addPoint;
         //if(this.state.correctAnswer.includes([event.target.innerText])){
         if(event.target.innerText === this.props.correctAnswer){
-
-
-        //correct answer cliccked
-        
-            console.log("correct answer clicked")
-            this.setState({
-                backgroundStyle: "green"
-            })
-
-            //change color of 
+                backgroundStyle = "green"
+                addPoint = true
         }else{
-            console.log("you clicekd worng answre")
-            this.setState({
-                backgroundStyle: "red"
-            })
+                backgroundStyle = "red"
+                addPoint = false   
         }
          
-        this.props.clicked(true)
+        let answerData={
+            clicked: true,
+            selectedAnswer: event.target.innerText,
+            backgroundStyle: backgroundStyle,
+            addPoint: addPoint
+        }
+        console.log(`add ${addPoint}`)
+        this.props.clicked(answerData)
 
     
     }
@@ -50,9 +49,9 @@ class Answer extends Component {
     render() {
         return (
 
-                
+
                 <div className= "answers">
-                    <p onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle}}>{this.props.answer}</p>
+                    <p onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle, display: "flex"}}>{this.props.answer}</p>
                 </div>
                 
         )
