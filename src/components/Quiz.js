@@ -6,6 +6,20 @@ class Quiz extends React.Component {
 
     render() {
       return (
+
+        // questions.map(question => <p> <Question specifiDate={question} /><p>  )
+        
+
+
+
+
+        // // {this.state.QuizQ.map(questions => {
+        // //   const answers = [questions.correct_answer, ...questions.incorrect_answers]
+        // //     console.log(answers);
+        // //    return <Quiz questions={questions.question} answers={answers}/>
+
+
+
       <div className={styles.quizDiv}>
       <h3 className={styles.question}>Question : {this.props.questions}</h3>
 
