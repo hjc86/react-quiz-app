@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom"
+import Answer from './Answer'
 
 export default class Question extends Component {
     constructor(props){
@@ -8,7 +9,8 @@ export default class Question extends Component {
         this.state={
             randomisedAnswers:null,
             correctAnswer: null,
-            wrongAnswers: null
+            wrongAnswers: null,
+            backgroundStyle: "none"
         }
         
 
@@ -66,15 +68,24 @@ export default class Question extends Component {
         
         
         //if(this.state.correctAnswer.includes([event.target.innerText])){
-        if(event.target.innerText === this.state.correctAnswer){
-        //correct answer cliccked
-        
-            console.log("correct answer clicked")
-            //change color of 
-        }else{
-            console.log("wrong answer")
+        // if(event.target.innerText === this.state.correctAnswer){
+            
+            
+        // }
 
-        }
+        // //correct answer cliccked
+        
+        //     console.log("correct answer clicked")
+        //     this.setState({
+        //         backgroundStyle: "green"
+        //     })
+
+        //     //change color of 
+        // }else{
+        //     this.setState({
+        //         backgroundStyle: "red"
+        //     })
+        // }
 
         //if(event.target.innerText === this.state.correctAnswer){
             
@@ -108,22 +119,23 @@ export default class Question extends Component {
 
           
             {this.state.randomisedAnswers === null ? "waiting for quiz generation" :
-                <React.Fragment>
-    
-                <div className="question">
-                
-                {this.props.questionData.question}   
-
-                </div>
-                
-                <div className= "answers">
-                    {this.state.randomisedAnswers.map((answer)=> (
-                    <p className="answer" onClick={this.checkCorrect} >{answer} </p>))
-                    }
-
-                </div>
-                </React.Fragment>
             
+            <React.Fragment>
+                <div className="question">
+                            
+                            {this.props.questionData.question}   
+
+                            </div>
+                            {this.state.randomisedAnswers.map((answer)=> (
+                            <Answer answer={answer} {...this.state}/> 
+                            ))}
+
+                            
+                        
+
+
+            </React.Fragment>
+           
             }
             
             
