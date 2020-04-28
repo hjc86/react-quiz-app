@@ -19,7 +19,7 @@ class UserInfo extends React.Component{
         event.preventDefault();
     
         // calling to trigger the function in App.js (FormSubmit)
-        this.props.onSubmit(this.state);
+        this.props.playerData(this.state);
     }
 
     // create function to take in values for each input
@@ -50,18 +50,19 @@ class UserInfo extends React.Component{
             <div className= "formDiv">
                 <form onSubmit={this.getUserData}>
                     <label>Username:</label>
-                    <input type="text" name="username" id="username" onChange={this.handleUser} />
+                    <input type="text" name="username" id="username" onChange={this.handleUser} required={true} />
 
                     <p>Level of Difficulty:</p>
                     <label>Easy</label>
-                    <input type="radio" name="difficulty" id="easy" value="easy" checked={this.state.difficulty === "easy"} onChange={this.handleDifficulty} />
+                    <input type="radio" name="difficulty" id="easy" value="easy" checked={this.state.difficulty === "easy"} onChange={this.handleDifficulty}required={true} />
                     <label>Medium</label>
                     <input type="radio" name="difficulty" id="medium" value="medium" checked={this.state.difficulty === "medium"} onChange={this.handleDifficulty} />
                     <label>Difficult</label>
                     <input type="radio" name="difficulty" id="difficult" value="hard" checked={this.state.difficulty === "hard"} onChange={this.handleDifficulty}/>
 
                     {/* dropdown for categories */}
-                    <select id="category" name="category" onChange={this.handleCategory.bind(this)} value={this.state.category}>
+                    <select id="category" name="category" onChange={this.handleCategory} value={this.state.category} >
+                        <option value=""> Please Chose Category</option>
                         <option value="26">Celebrity</option>
                         <option value="20">Mythodology</option>
                         <option value="23">History</option>

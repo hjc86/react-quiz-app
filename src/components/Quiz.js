@@ -1,19 +1,42 @@
 import React from 'react';
 import styles from './Quiz.module.css';
+import Question from './Question'
 
 class Quiz extends React.Component {
 
-
-    render() {
-      return (
-      <div className={styles.quizDiv}>
-      <h3 className={styles.question}>Question : {this.props.questions}</h3>
-
-      {/* // display answers - find a way to randomise and space the answers out in button form */}
-      <h3 className={styles.question}>Answer : {this.props.answers} {this.props.incorrect}</h3>
-      </div>
-      )
-    }
+  constructor(props){
+    super(props)
   }
+
+
+  render() {
+
+    console.log(this.props.quizData)
+      return (
+        
+        <div>
+
+
+        {this.props.quizData.map((questionItem) => <Question questionData={questionItem} />)}
+          
+        
+
+        </div>
+
+        
+        
+      
+          
+  
+
+      // <div className={styles.quizDiv}>
+      // <h3 className={styles.question}>Question : {this.props.questions}</h3>
+
+      // {/* // display answers - find a way to randomise and space the answers out in button form */}
+      // <h3 className={styles.question}>Answer : {this.props.answers} {this.props.incorrect}</h3>
+      // </div>
+    )
+  }
+}
 
 export default Quiz;
