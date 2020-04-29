@@ -84,7 +84,7 @@ class QuizManager extends Component {
                         //  && this.state.playerIndex!==2? */}
                         // {/* {this.state.playerIndex===2? */}
 
-                        `here are the scores ${this.state.scoreArray} end of quiz here are the scores and the winner is find the`: 
+                        `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName}of quiz here are the scores and the winner is find the`: 
                             
                         <Quiz quizData={this.props.playerInfo} 
                         playerInfo={this.props.playerInfo} 
