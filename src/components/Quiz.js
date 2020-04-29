@@ -54,7 +54,7 @@ class Quiz extends React.Component {
   }
 
 
-  render() {
+ 
 
       getQuizApi = async (userData) => {
 
@@ -75,54 +75,51 @@ class Quiz extends React.Component {
     }
 
 
-    async componentDidMount(){
+       componentDidMount =()=>{
 
       this.getQuizApi(this.props.playerInfo)
     
     }
     
-    componentWillMount(){
-      
-    }
-  
+
     render() {
-     
-      
+      return (
+        this.state.quizInstance === null ? "waiting to load":
 
-    return (
-      this.state.quizInstance === null ? "waiting to load":
+          // this.props.isFinished === true? "quiz has finsihed do again?":
+          <div>
 
-        // this.props.isFinished === true? "quiz has finsihed do again?":
-
-
-          <div className={styles.startButtonDiv}>
-            <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
-          </div>
-
-
-        <div>
-          {this.props.currentPlayer}
-          {this.state.quizInstance.map((questionItem) => 
-          <Question questionData={questionItem} 
-          latestPoint={this.updateScore} 
-          answeredQuestions={this.updateAnsweredQuestions}/>)}
-
-
-        </div>
-           
     
-        
-        
-      
-   
-      // <div className={styles.quizDiv}>
-      // <h3 className={styles.question}>Question : {this.props.questions}</h3>
 
-      // {/* // display answers - find a way to randomise and space the answers out in button form */}
-      // <h3 className={styles.question}>Answer : {this.props.answers} {this.props.incorrect}</h3>
-      // </div>
+            <div className={styles.startButtonDiv}>
+              <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
+            </div>
+
+
+            <div>
+              {this.props.currentPlayer}
+              {this.state.quizInstance.map((questionItem) => 
+              <Question questionData={questionItem} 
+              latestPoint={this.updateScore} 
+              answeredQuestions={this.updateAnsweredQuestions}/>)}
+
+
+            </div>
+            
+      
+          
+          </div>
+        
+    
+        // <div className={styles.quizDiv}>
+        // <h3 className={styles.question}>Question : {this.props.questions}</h3>
+
+        // {/* // display answers - find a way to randomise and space the answers out in button form */}
+        // <h3 className={styles.question}>Answer : {this.props.answers} {this.props.incorrect}</h3>
+        // </div>
     )
   }
 }
+
 
 export default Quiz;
