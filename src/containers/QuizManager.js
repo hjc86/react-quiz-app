@@ -50,9 +50,11 @@ class QuizManager extends Component {
        {this.state.questionsAnswered === 5 ? 
             
              null:
-             <Quiz quizData={this.props.quizData} playerInfo={this.props.playerInfo} 
-            currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
-            answeredQuestions={this.updateAnsweredQuestions} isFinished={this.checkFinished}/>
+             <Quiz quizData={this.props.quizData} 
+                    playerInfo={this.props.playerInfo} 
+                    currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                    answeredQuestions={this.updateAnsweredQuestions} 
+                    isFinished={this.checkFinished}/>
     
        }
 

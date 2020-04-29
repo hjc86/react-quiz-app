@@ -30,6 +30,8 @@ class UserInfo extends React.Component{
                 category: node.querySelector('#category').value,
                 difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value
             }
+            console.log()
+        
     
             this.props.playerData(userDataObj)
   
@@ -40,19 +42,19 @@ class UserInfo extends React.Component{
         return( 
 
             <div className= {styles.formDiv}>
-                <form onSubmit={this.getUserData}>
+                <form onSubmit={this.playerData}>
                     <label className= {styles.player}>Player : </label>
-                    <input className= {styles.bar} type="text" name="username" id="username" placeholder="     insert player name" onChange={this.handleUser} required={true} />
+                    <input className= {styles.bar} type="text" name="username" id="username" placeholder="     insert player name"  required={true} />
                     <p className={styles.diff}>Select Level</p>
                     <label className= {styles.text}>Easy </label>
-                    <input type="radio" name="difficulty" id="easy" value="easy" checked={this.state.difficulty === "easy"} onChange={this.handleDifficulty}required={true} />
+                    <input type="radio" name="difficulty" id="easy" value="easy" required={true} />
                     <label className= {styles.text}>Medium </label>
-                    <input type="radio" name="difficulty" id="medium" value="medium" checked={this.state.difficulty === "medium"} onChange={this.handleDifficulty} />
+                    <input type="radio" name="difficulty" id="medium" value="medium" />
                     <label className= {styles.text}>Difficult </label>
-                    <input type="radio" name="difficulty" id="difficult" value="hard" checked={this.state.difficulty === "hard"} onChange={this.handleDifficulty}/>
+                    <input type="radio" name="difficulty" id="difficult" value="hard"/>
                     <br />
                     {/* dropdown for categories */}
-                    <select id="category" name="category" onChange={this.handleCategory} value={this.state.category} >
+                    <select id="category" name="category"  value={this.state.category} >
                         <option value=""> Please Select Category</option>
 
                         <option value="26">Celebrity</option>
