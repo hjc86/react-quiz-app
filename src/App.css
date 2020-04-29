@@ -1,13 +1,44 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   font-family: 'Manrope', sans-serif;
   font-weight: 100px;
+  
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   
+}
+
+.inactive {
+  pointer-events: none;
+}
+
+button {
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.buttonDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+  margin: auto;
+}
+
+.quizDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+
+.question {
+  padding: 10px;
+  margin: 10px 5px;
 }

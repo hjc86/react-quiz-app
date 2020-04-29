@@ -29,6 +29,7 @@ Your website should have the following technical functionality:
 * Integrate and fetch API which renders new set of questions for user to answer
 * Apply tests 
 * Efficient usage of states and passing props to children components
+* Pass props from Parent to Child vice versa
 
 
 ### What challenges we overcame
@@ -37,6 +38,36 @@ Your website should have the following technical functionality:
 
 ### What we struggled with
 * Displaying api data on children component
+* Mapping and shuffling the answers 
 
 
 ### What we would do differently next time
+
+
+
+
+
+### StandUps
+* Monday
+    - Planning phase
+    - Team 1 (Helder and Rosie) , Team 2 (Susan and James)
+    - Group call schedules : 9am , 12:30pm, 5pm
+    - Tasks : Project template creation, API documentation and integration, UserInfo Form Component, Create tests for each feature
+
+    - All tasks completed, no issues or blockers
+
+* Tuesday 
+    - Implementation 
+    - Team swap - Team 1 (Helder and Susan), Team 2 (James and Rosie)
+    - Group call schedules : 9am , 11:30pm, 4pm
+    - Tasks : Reorganise components for cleaner work flow, Questions and answers to be rendered on a separate component, Answers should be shuffled and clickable - change of style
+    - Team decision : Focus on having a working quiz app for just ONE PLAYER before feature freeze on Wednesday. If time permits try integrate more players
+    - Concerns : Time management, project outcome 
+    
+    - All Tasks completed and pushed to GitHub
+
+* Wednesday 
+    - 9am call with group to discuss about project progress and concerns 
+    - Tasks : Add QuizManager component for additional player features, Score component to declare winner at the end, Ability to restart the game
+    - Not to add any new features after 6pm today (Feature Freeze)
+ 

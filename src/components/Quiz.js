@@ -1,4 +1,11 @@
 import React from 'react';
+
+import Question from './Question';
+import '../App.css';
+
+class Quiz extends React.Component {
+
+
 import styles from './Quiz.module.css';
 import Question from './Question'
 import Score from'./Score'
@@ -46,12 +53,22 @@ class Quiz extends React.Component {
     console.log("answered questions", this.state.questionsAnswered)
       return (
         
+
+        <div className="quizDiv">
+
+
+        {this.props.quizData.map((questionItem, index) => <Question questionData={questionItem} />)}
+          
+        
+
+
         <div>
             
         {this.props.currentPlayer}
           {
           this.props.quizData.map((questionItem) => <Question questionData={questionItem} latestPoint={this.updateScore} answeredQuestions={this.updateAnsweredQuestions}/>)
         }
+
 
 
         </div>

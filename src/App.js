@@ -5,6 +5,7 @@ import Score from './components/Score';
 import QuizManager from './containers/QuizManager'
 
 
+
 class App extends React.Component {
 
 // states GetUsername, GetAPI, GetQuestions, GetAnswers, GetScore
@@ -70,7 +71,6 @@ render() {
           // {/* </QuizManager> <Quiz quizData={this.state.QuizQ} playerInfo={this.state} />   */}
         }
         
-    
         </div>
       );
     }
