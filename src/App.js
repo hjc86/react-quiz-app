@@ -1,6 +1,9 @@
 import React from 'react';
 import UserInfo from './components/UserInfo';
 import Quiz from './components/Quiz';
+import Score from './components/Score';
+import QuizManager from './containers/QuizManager'
+
 
 
 class App extends React.Component {
@@ -19,8 +22,11 @@ constructor(props){
 
 
 getUserData = async (playerData) =>{
+  let userNameArray = playerData.userName.split(',')
+  console.log("username array", userNameArray)
+
   await this.setState({ // wait for user data to be set
-    userName: playerData.username,
+    userName: playerData.userName.split(','),
     difficulty: playerData.difficulty,
     category: playerData.category
   })
@@ -31,7 +37,7 @@ getUserData = async (playerData) =>{
 
 
   //Fetch data from api
-  getQuizApi = async (userData) => {
+getQuizApi = async (userData) => {
 
     const categoryNumber = userData.category;
     const difficulty = userData.difficulty;
@@ -43,23 +49,26 @@ getUserData = async (playerData) =>{
   
     // to get the whole data 
     this.setState({
-      QuizQ : data.results
-    
+      QuizQ:data.results
     });
-    //console.log(data);
-  }
+
+}
 
 
 
 
-    render() {
+render() {
       return (
         <div className="container">
           
         
         { this.state.QuizQ === null? 
           <UserInfo playerData={this.getUserData} /> : 
-          <Quiz quizData={this.state.QuizQ} />  
+          <QuizManager quizData={this.state.QuizQ} playerInfo={this.state}/>
+
+
+
+          // {/* </QuizManager> <Quiz quizData={this.state.QuizQ} playerInfo={this.state} />   */}
         }
         
         </div>

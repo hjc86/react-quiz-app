@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ReactDOM from "react-dom"
 import Answer from './Answer'
 import '../App.css';
+import Score from './Score'
+
 
 export default class Question extends Component {
     constructor(props){
@@ -13,9 +15,11 @@ export default class Question extends Component {
             wrongAnswers: null,
             backgroundStyle: "none",
             clicked: false,
+
             userAnswers : []
+
         }
-        
+
 
 
     }
@@ -31,7 +35,7 @@ export default class Question extends Component {
             {
                 randomisedAnswers: arr,
                 correctAnswer: questionData.correct_answer,
-                wrongAnswers: questionData.incorrect_answers
+                wrongAnswers: questionData.incorrect_answers,
             }
         ) 
     }
@@ -51,72 +55,54 @@ export default class Question extends Component {
         console.log("randomised indicies",questionAnswerIndicies)
         return randomisedAnswers
 
-      
-
+    
     }
+
+
+    hasBeenClicked = (answerData)=>{
+        
+        this.setState({
+            clicked : true
+            selectedAnswer: answerData.selectedAnswer,
+            backgroundStyle: answerData.backgroundStyle
+      
+        })
+
+        //
+        console.log("should add point", answerData.addPoint)
+       
+
+        if(answerData.addPoint){
+            this.props.latestPoint(1)
+            
+        }
+        else{
+            this.props.latestPoint(0)
+            
+        }
+        
+        this.props.answeredQuestions(1)
+       
+        console.log(this.state.playerScore)
+        // let scoreUpdate = answerData.addPoint ? this.1: 0  
+        
+     
+        // this.props.currentScore(scoreUpdate)
+                    
+        console.log("already clicked")
+    }
+
+    
+
 
     componentDidMount(){
 
         this.createAnswerArray()
+       // this.props.currentScore(1)
 
     }
 
-    checkCorrect = (event) => {
-        console.log(event.target.innerText)
-        console.log(this.state.correctAnswer)
 
-        const node = ReactDOM.findDOMNode(this)//.findDOMNode(".answers");
-
-        console.log(node.querySelectorAll('.answer'))
-        
-        
-        //if(this.state.correctAnswer.includes([event.target.innerText])){
-        // if(event.target.innerText === this.state.correctAnswer){
-            
-            
-        // }
-
-        // //correct answer cliccked
-        
-        //     console.log("correct answer clicked")
-        //     this.setState({
-        //         backgroundStyle: "green"
-        //     })
-
-        //     //change color of 
-        // }else{
-        //     this.setState({
-        //         backgroundStyle: "red"
-        //     })
-        // }
-
-        //if(event.target.innerText === this.state.correctAnswer){
-            
-            
-
-        // answer is correct make bckgound greend make the rest red     
-    
-        // }else{
-        //     all elemnts 
-        //     //make correct answer grenn and all rest red
-        // }
-    }
-
-    hasBeenClicked = () => {
-
-        this.setState({
-            clicked : true
-          });
-
-    }
-    
-    
-    
-    //if click on right answer:
-        //- clicked answer goes green, all the res go red
-    //else if click on wrong answe:
-        // right answer goes green all the rest gor red
-    
     render() {
 
      
@@ -125,28 +111,54 @@ export default class Question extends Component {
         return (
             
             <div>
-
+            
           
             {this.state.randomisedAnswers === null ? "waiting for quiz generation" :
             
                 <React.Fragment>
-                    <div className="question">
-                                
-                                {this.props.questionData.question}   
+
+                    <div style={{border: "5px solid black"}}>
+
+
+                        <div className="questionAnswers">
+                                    
+                            {this.props.questionData.question}   
+
+                        </div>
+
+                    <div style={{background: "grey"}}>
+          
+                        {this.state.clicked ? 
+                            (<p style={{backgroundColor: this.state.backgroundStyle}}> Selected answer: {this.state.selectedAnswer}  </p>) :
+                            this.state.randomisedAnswers.map((answer)=> (
+                                <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} /> 
+                            ))
+                        }
+
 
                     </div>
+
+
+
+
+                    </div>
+
 
                     {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
                     {this.state.randomisedAnswers.map((answer)=> (
                     <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked.bind(this)} className={this.state.clicked ? "inactive": ""} /> 
                     ))}
 
+
                 </React.Fragment>
            
             }
+             
+             
+          
             
-            
-            </div>
+                
+               </div>
         
         )
     }

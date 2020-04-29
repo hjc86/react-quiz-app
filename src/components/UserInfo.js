@@ -1,5 +1,9 @@
 import React from 'react';
+
 import styles from './UserInfo.module.css';
+
+
+import ReactDOM from 'react-dom'
 
 
 class UserInfo extends React.Component{
@@ -9,45 +13,32 @@ class UserInfo extends React.Component{
 
         // set states for each user data
         this.state = {
-            username : null,
+            userName : null,
             difficulty: null,
             category: null
         }
     }
 
-        // function to take in userdata
-    getUserData = (event) => {
-        event.preventDefault();
+
+    playerData = (event) => {
+            event.preventDefault();
+
+            const node = ReactDOM.findDOMNode(this);
     
-        // calling to trigger the function in App.js (playerData)
-        this.props.playerData(this.state);
+            const userDataObj={
+                userName: node.querySelector('#username').value,
+                category: node.querySelector('#category').value,
+                difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value
+            }
+    
+            this.props.playerData(userDataObj)
+  
     }
-
-    //functions to set state on each input change
-
-    handleUser = (e) => {
-        this.setState({
-            username: e.target.value
-        });
-    }
-
-    handleDifficulty = (e) => {
-        this.setState({
-            difficulty: e.target.value
-        });
-    }
-
-    handleCategory = (e) => {
-        this.setState({
-            category: e.target.value
-
-        }); console.log(e);
-    }
-
 
     render() {
         
         return( 
+
             <div className= {styles.formDiv}>
                 <form onSubmit={this.getUserData}>
                     <label className= {styles.player}>Player : </label>
@@ -63,6 +54,7 @@ class UserInfo extends React.Component{
                     {/* dropdown for categories */}
                     <select id="category" name="category" onChange={this.handleCategory} value={this.state.category} >
                         <option value=""> Please Select Category</option>
+
                         <option value="26">Celebrity</option>
                         <option value="20">Mythodology</option>
                         <option value="23">History</option>
