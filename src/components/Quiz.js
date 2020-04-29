@@ -1,8 +1,9 @@
-//import styles from './Quiz.module.css';
+import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
 import QuizManager from '../containers/QuizManager';
 import Question from './Question';
+
 
 
 
@@ -40,6 +41,11 @@ class Quiz extends React.Component {
 
   }
 
+  refreshPage = () => {
+    window.location.reload(false);
+  }
+
+
   render() {
     
      console.log(this.props.quizData)
@@ -48,7 +54,7 @@ class Quiz extends React.Component {
     // console.log("current player in quiz ocmponent", this.props.currentPlayer)
     // console.log("answered questions", this.state.questionsAnswered)
       
-    
+
     return (
         
         <div>
@@ -56,6 +62,10 @@ class Quiz extends React.Component {
         {this.props.currentPlayer}
         {this.props.quizData.map((questionItem) => <Question questionData={questionItem} latestPoint={this.updateScore} answeredQuestions={this.updateAnsweredQuestions}/>)}
 
+
+          <div className={styles.startButtonDiv}>
+            <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
+          </div>
 
 
         </div>
