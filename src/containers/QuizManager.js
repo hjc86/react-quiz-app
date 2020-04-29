@@ -8,7 +8,8 @@ class QuizManager extends Component {
         this.state={
             //currentPlayer: null,
             questionsAnswered: 0,
-            playerIndex: 0
+            playerIndex: 0,
+            finished: false
         }
 
 
@@ -30,10 +31,14 @@ class QuizManager extends Component {
 
     }
 
+    checkFinished(){
+        
+    }
+
 
     render() {
 
-        console.log("questions anserewd", this.state.questionsAnswered)
+        console.log("qm questions anserewd", this.state.questionsAnswered)
         
        console.log("index", this.state.playerIndex)
         
@@ -45,7 +50,9 @@ class QuizManager extends Component {
        {this.state.questionsAnswered === 5 ? 
             
              null:
-             <Quiz quizData={this.props.quizData} playerInfo={this.props.playerInfo} currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} answeredQuestions={this.updateAnsweredQuestions}/>
+             <Quiz quizData={this.props.quizData} playerInfo={this.props.playerInfo} 
+            currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+            answeredQuestions={this.updateAnsweredQuestions} isFinished={this.checkFinished}/>
     
        }
 

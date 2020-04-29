@@ -47,7 +47,7 @@ class Quiz extends React.Component {
       return (
         
         <div>
-
+            
         {this.props.currentPlayer}
           {
           this.props.quizData.map((questionItem) => <Question questionData={questionItem} latestPoint={this.updateScore} answeredQuestions={this.updateAnsweredQuestions}/>)
