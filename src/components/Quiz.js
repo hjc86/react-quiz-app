@@ -1,12 +1,8 @@
 import React from 'react';
-import styles from './Quiz.module.css';
-import Question from './Question'
+import Question from './Question';
+import '../App.css';
 
 class Quiz extends React.Component {
-
-  constructor(props){
-    super(props)
-  }
 
 
   render() {
@@ -14,10 +10,10 @@ class Quiz extends React.Component {
     console.log(this.props.quizData)
       return (
         
-        <div>
+        <div className="quizDiv">
 
 
-        {this.props.quizData.map((questionItem) => <Question questionData={questionItem} />)}
+        {this.props.quizData.map((questionItem, index) => <Question questionData={questionItem} />)}
           
         
 

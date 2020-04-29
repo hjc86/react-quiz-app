@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom"
+import '../App.css';
 
 
 // style={{backgroundColor: this.state.backgroundStyle }
@@ -9,7 +10,8 @@ class Answer extends Component {
         super(props)
 
         this.state={
-            backgroundStyle: "none"
+            backgroundStyle: "none",
+            chosen : false 
         }
 
     }
@@ -30,14 +32,14 @@ class Answer extends Component {
         
             console.log("correct answer clicked")
             this.setState({
-                backgroundStyle: "green"
+                backgroundStyle: "#63cdda"
             })
 
             //change color of 
         }else{
-            console.log("you clicekd worng answre")
+            console.log("you clicked wrong answer")
             this.setState({
-                backgroundStyle: "red"
+                backgroundStyle: "#e66767"
             })
         }
          
@@ -46,13 +48,12 @@ class Answer extends Component {
     
     }
     
-    
     render() {
         return (
 
                 
-                <div className= "answers">
-                    <p onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle}}>{this.props.answer}</p>
+                <div className="buttonDiv">
+                    <button className= {"answers "+ this.props.className} onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle, display : this.state.display}}>{this.props.answer}</button>
                 </div>
                 
         )

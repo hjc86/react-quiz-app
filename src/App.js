@@ -1,7 +1,7 @@
 import React from 'react';
 import UserInfo from './components/UserInfo';
 import Quiz from './components/Quiz';
-import Score from './components/Score';
+
 
 class App extends React.Component {
 
@@ -62,8 +62,6 @@ getUserData = async (playerData) =>{
           <Quiz quizData={this.state.QuizQ} />  
         }
         
-        
-        <Score />
         </div>
       );
     }

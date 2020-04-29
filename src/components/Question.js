@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom"
 import Answer from './Answer'
+import '../App.css';
 
 export default class Question extends Component {
     constructor(props){
@@ -11,7 +12,8 @@ export default class Question extends Component {
             correctAnswer: null,
             wrongAnswers: null,
             backgroundStyle: "none",
-            clicked: false
+            clicked: false,
+            userAnswers : []
         }
         
 
@@ -100,11 +102,11 @@ export default class Question extends Component {
         // }
     }
 
-    hasBeenClicked =()=>{
+    hasBeenClicked = () => {
+
         this.setState({
-            clicked: true
-        })
-        console.log("already clicked")
+            clicked : true
+          });
 
     }
     
@@ -119,7 +121,7 @@ export default class Question extends Component {
 
      
     
-       console.log("clcikd state", this.state.clicked)
+    //    console.log(this.props.questionData)
         return (
             
             <div>
@@ -136,7 +138,7 @@ export default class Question extends Component {
 
                     {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
                     {this.state.randomisedAnswers.map((answer)=> (
-                    <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} /> 
+                    <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked.bind(this)} className={this.state.clicked ? "inactive": ""} /> 
                     ))}
 
                 </React.Fragment>
