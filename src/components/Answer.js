@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom"
+import '../App.css';
 
 
 // style={{backgroundColor: this.state.backgroundStyle }
@@ -9,49 +10,50 @@ class Answer extends Component {
         super(props)
 
         this.state={
-            backgroundStyle: "none"
-            
+            backgroundStyle: "none",
+            chosen : false 
         }
 
     }
 
-     checkCorrect = async (event) => {
-
+    checkCorrect = (event) => {
         console.log(event.target.innerText)
         console.log(this.props.correctAnswer)
+
         const node = ReactDOM.findDOMNode(this)//.findDOMNode(".answers");
+
         console.log(node.querySelectorAll('.answer'))
         
-        let backgroundStyle;
-        let addPoint;
         //if(this.state.correctAnswer.includes([event.target.innerText])){
         if(event.target.innerText === this.props.correctAnswer){
-                backgroundStyle = "green"
-                addPoint = true
+
+
+        //correct answer cliccked
+        
+            console.log("correct answer clicked")
+            this.setState({
+                backgroundStyle: "#63cdda"
+            })
+
+            //change color of 
         }else{
-                backgroundStyle = "red"
-                addPoint = false   
+            console.log("you clicked wrong answer")
+            this.setState({
+                backgroundStyle: "#e66767"
+            })
         }
          
-        let answerData={
-            clicked: true,
-            selectedAnswer: event.target.innerText,
-            backgroundStyle: backgroundStyle,
-            addPoint: addPoint
-        }
-        console.log(`add ${addPoint}`)
-        this.props.clicked(answerData)
+        this.props.clicked(true)
 
     
     }
-    
     
     render() {
         return (
 
-
-                <div className= "answers">
-                    <p onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle, display: "flex"}}>{this.props.answer}</p>
+                
+                <div className="buttonDiv">
+                    <button className= {"answers "+ this.props.className} onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle, display : this.state.display}}>{this.props.answer}</button>
                 </div>
                 
         )
