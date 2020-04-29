@@ -54,8 +54,6 @@ class Quiz extends React.Component {
   }
 
 
- 
-
       getQuizApi = async (userData) => {
 
         const categoryNumber = userData.category;
@@ -84,20 +82,20 @@ class Quiz extends React.Component {
 
     render() {
       return (
-        this.state.quizInstance === null ? "waiting to load":
+        this.state.quizInstance === null ? `waiting for ${this.props.currentPlayer}s round to load load`:
 
-          // this.props.isFinished === true? "quiz has finsihed do again?":
           <div>
-
-    
-
             <div className={styles.startButtonDiv}>
               <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
             </div>
 
-
             <div>
-              {this.props.currentPlayer}
+             {this.props.currentPlayer} is be quizzed on {this.props.playerInfo.categoryName}
+           
+            </div>
+            
+            <div>
+              
               {this.state.quizInstance.map((questionItem) => 
               <Question questionData={questionItem} 
               latestPoint={this.updateScore} 
