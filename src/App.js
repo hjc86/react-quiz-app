@@ -21,8 +21,8 @@ class App extends React.Component {
 constructor(props){
   super(props);
   this.state = {
-      QuizQ : null,
-      Answers : null,
+      //QuizQ : null,
+      //Answers : null,
       userName: null,
       difficulty: null,
       category: null
@@ -39,37 +39,37 @@ getUserData = async (playerData) =>{
     category: playerData.category
   })
   
-  //then trigger the getQuiz api
-  await this.getQuizApi(this.state);
+  // //then trigger the getQuiz api
+  // await this.getQuizApi(this.state);
 }
 
 
  // Fetch data from api
-getQuizApi = async (userData) => {
+// getQuizApi = async (userData) => {
 
-    const categoryNumber = userData.category;
-    const difficulty = userData.difficulty;
+//     const categoryNumber = userData.category;
+//     const difficulty = userData.difficulty;
 
-    const apiCall = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
-    const data = await apiCall.json();
+//     const apiCall = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+//     const data = await apiCall.json();
 
-   // console.log("first question from api",data.results[0].question);
+//    // console.log("first question from api",data.results[0].question);
   
-    // to get the whole data 
-    this.setState({
-      QuizQ:data.results
-    });
+//     // to get the whole data 
+//     this.setState({
+//       QuizQ:data.results
+//     });
 
-}
+// }
 
 
 render() {
       return (
         <div className="container">
           
-        { this.state.QuizQ === null? 
+        { this.state.userName === null? 
           <UserInfo playerData={this.getUserData} /> : 
-          <QuizManager quizData={this.state.QuizQ} playerInfo={this.state}/>
+          <QuizManager playerInfo={this.state}/>
         }
         
         </div>

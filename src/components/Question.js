@@ -21,8 +21,7 @@ class Question extends Component {
 
 
     }
-    
-    //question logic methods
+   
     
     createAnswerArray= ()=> {  
         let questionData= this.props.questionData 
@@ -63,7 +62,6 @@ class Question extends Component {
             clicked : true,
             selectedAnswer: answerData.selectedAnswer,
             backgroundStyle: answerData.backgroundStyle
-      
         })
 
   
@@ -78,15 +76,13 @@ class Question extends Component {
         
         this.props.answeredQuestions(1)
        
-        console.log(this.state.playerScore)
+        //console.log("player score in qusestion componet", this.state.playerScore)
 
         // let scoreUpdate = answerData.addPoint ? this.1: 0  
         // this.props.currentScore(scoreUpdate)
                     
-        console.log("already clicked")
     }
 
-    
 
 
     componentDidMount(){
@@ -123,7 +119,7 @@ class Question extends Component {
         
                             {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
                             {this.state.randomisedAnswers.map((answer)=> (
-                            <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked.bind(this)} className={this.state.clicked ? "inactive": ""} /> 
+                            <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} className={this.state.clicked ? "inactive": ""} /> 
                             ))}
         
         

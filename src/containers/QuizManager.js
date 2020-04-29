@@ -9,7 +9,11 @@ class QuizManager extends Component {
             //currentPlayer: null,
             questionsAnswered: 0,
             playerIndex: 0,
-            finished: false
+            finished: false,
+            quizQA: null,
+            score: 0,
+            scoreArray: [],
+            isFinished: false
         }
 
     }
@@ -29,55 +33,53 @@ class QuizManager extends Component {
         }
 
     }
-
-
-    // getQuizApi = async (userData) => {
-
-    //     const categoryNumber = userData.category;
-    //     const difficulty = userData.difficulty;
     
-    //     const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
-    //     const data = await apiCall.json();
     
-    //     console.log("first question from api",data.results[0].question);
-      
-    //     // to get the whole data 
-    //     this.setState({
-    //       QuizQ:data.results
-    //     });
-    
-    // }
+    updateScore= (score)=>{
+        console.log("quizmanger score", score)
+        console.log("quiz manger score array", this.state.scoreArray)
+        console.log("Player index",this.state.playerIndex)
+        if(this.state.questionsAnswered === 4){
 
-    
-    // checkFinished(){
-        
-    // }
+            this.setState({
+                scoreArray: [...this.state.scoreArray, score],
+                score: score    
+             })
+            
 
+        }
+        console.log()
+        if(this.state.scoreArray.length===this.props.playerInfo.userName.length){
+            this.setState({
+                isFinished:true
+            })
+        } 
+    }  
 
     render() {
-
-        // console.log("qm questions anserewd", this.state.questionsAnswered)
-        // console.log("index", this.state.playerIndex)
-     
-       // console.log("quizmanger question",this.props.quizData[0].question)
+        console.log("player score array in quiz manager",this.state.scoreArray)
+        console.log("quiz finished" ,((this.state.questionsAnswered === 5) && (this.state.scoreArray.length===this.props.playerInfo.userName.length)))
         return (
 
             <div>
-
-                    
-                {this.state.questionsAnswered === 5 ? 
-                        
-                        "nothing here":
-                        <Quiz quizData={this.props.quizData} 
-                                playerInfo={this.props.playerInfo} 
-                                currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
-                                answeredQuestions={this.updateAnsweredQuestions} 
-                                isFinished={this.checkFinished}/>
                 
+                {(this.state.questionsAnswered === 5)? 
+                        
+                        null:
+                        <Quiz quizData={this.props.playerInfo} 
+                        playerInfo={this.props.playerInfo} 
+                        currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                        answeredQuestions={this.updateAnsweredQuestions}
+                        score={this.updateScore}
+                        isFinished={this.state.checkFinished}/>
+            
                 }
 
+                    
+                  
+           
                 
-                </div>
+            </div>
         
         
         
