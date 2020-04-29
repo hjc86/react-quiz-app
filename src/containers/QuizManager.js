@@ -13,9 +13,9 @@ class QuizManager extends Component {
             quizQA: null,
             score: 0,
             scoreArray: [],
-           
+            carryOn: true
         }
-
+        
     }
     
     
@@ -25,7 +25,7 @@ class QuizManager extends Component {
             questionsAnswered: questionsAnswered
         })
 
-        if(this.state.questionsAnswered===5){
+        if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
             this.setState({
                 playerIndex: this.state.playerIndex+1,
                 questionsAnswered: 0
@@ -51,7 +51,7 @@ class QuizManager extends Component {
         console.log()
         if(this.state.scoreArray.length===this.props.playerInfo.userName.length){
             this.setState({
-                isFinished:true
+                carryOn: false
             })
         } 
     }  
@@ -68,6 +68,8 @@ class QuizManager extends Component {
     
         console.log("reach end",this.state.playerInde >= this.props.playerInfo.userName.length)
         console.log(this.state.playerIndex,"/",this.props.playerInfo.userName.length)
+        
+        
         return (
 
             <div>
@@ -78,8 +80,9 @@ class QuizManager extends Component {
                  */}
                 
                 {/* {this.state.playerIndex >= this.props.playerInfo.userName.length?        */}
-                        {this.state.questionsAnswered === 5 && (this.state.playerIndex >= this.props.playerInfo.userName.length)?
-
+                        {this.state.questionsAnswered === 5?
+                        //  && this.state.playerIndex!==2? */}
+                        // {/* {this.state.playerIndex===2? */}
 
                         `here are the scores ${this.state.scoreArray} end of quiz here are the scores and the winner is find the`: 
                             

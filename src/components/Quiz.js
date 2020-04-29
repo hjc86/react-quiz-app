@@ -72,7 +72,9 @@ class Quiz extends React.Component {
     
     }
     
-    
+    componentWillMount(){
+      
+    }
   
     render() {
      
@@ -84,7 +86,10 @@ class Quiz extends React.Component {
 
         <div>
           {this.props.currentPlayer}
-          {this.state.quizInstance.map((questionItem) => <Question questionData={questionItem} latestPoint={this.updateScore} answeredQuestions={this.updateAnsweredQuestions}/>)}
+          {this.state.quizInstance.map((questionItem) => 
+          <Question questionData={questionItem} 
+          latestPoint={this.updateScore} 
+          answeredQuestions={this.updateAnsweredQuestions}/>)}
 
         </div>
            
