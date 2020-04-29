@@ -90,7 +90,7 @@ class Quiz extends React.Component {
             </div>
 
             <div>
-             {this.props.currentPlayer} is be quizzed on {this.props.playerInfo.categoryName}
+             {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}
            
             </div>
             
