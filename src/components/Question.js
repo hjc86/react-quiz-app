@@ -51,7 +51,7 @@ class Question extends Component {
             };   
         }
 
-        console.log("randomised indicies",questionAnswerIndicies)
+        // console.log("randomised indicies",questionAnswerIndicies)
         return randomisedAnswers
 
     }
@@ -67,7 +67,7 @@ class Question extends Component {
         })
 
   
-        console.log("should add point", answerData.addPoint)
+        // console.log("should add point", answerData.addPoint)
        
         if(answerData.addPoint){
             this.props.latestPoint(1)     

@@ -42,9 +42,9 @@ class Quiz extends React.Component {
 
   render() {
     
-     console.log(this.props.quizData)
+    //  console.log(this.props.quizData)
 
-     
+
     // console.log("current player in quiz ocmponent", this.props.currentPlayer)
     // console.log("answered questions", this.state.questionsAnswered)
       

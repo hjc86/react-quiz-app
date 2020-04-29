@@ -5,6 +5,15 @@ import Score from './components/Score';
 import QuizManager from './containers/QuizManager'
 
 
+// use token that expires but annoying
+// get all question at the begining in APP.js, create logic to pick random selection
+// or do seperate api calls for each quiz instance
+
+//need to know:
+  //a. number of players: 4 max
+  //b. are there enough questions to do a quiz: one round is 5questions so need at least 20
+  //c. if there arent enought say pick another category or play with less players  
+
 
 class App extends React.Component {
 
@@ -20,7 +29,6 @@ constructor(props){
   };
 }
 
-
 getUserData = async (playerData) =>{
   let userNameArray = playerData.userName.split(',')
   console.log("username array", userNameArray)
@@ -32,20 +40,20 @@ getUserData = async (playerData) =>{
   })
   
   //then trigger the getQuiz api
-  this.getQuizApi(this.state);
+  await this.getQuizApi(this.state);
 }
 
 
-  //Fetch data from api
+ // Fetch data from api
 getQuizApi = async (userData) => {
 
     const categoryNumber = userData.category;
     const difficulty = userData.difficulty;
 
-    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+    const apiCall = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
     const data = await apiCall.json();
 
-    console.log(userData);
+   // console.log("first question from api",data.results[0].question);
   
     // to get the whole data 
     this.setState({
@@ -55,20 +63,13 @@ getQuizApi = async (userData) => {
 }
 
 
-
-
 render() {
       return (
         <div className="container">
           
-        
         { this.state.QuizQ === null? 
           <UserInfo playerData={this.getUserData} /> : 
           <QuizManager quizData={this.state.QuizQ} playerInfo={this.state}/>
-
-
-
-          // {/* </QuizManager> <Quiz quizData={this.state.QuizQ} playerInfo={this.state} />   */}
         }
         
         </div>

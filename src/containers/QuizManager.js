@@ -12,7 +12,6 @@ class QuizManager extends Component {
             finished: false
         }
 
-
     }
     
     
@@ -31,35 +30,54 @@ class QuizManager extends Component {
 
     }
 
-    checkFinished(){
+
+    // getQuizApi = async (userData) => {
+
+    //     const categoryNumber = userData.category;
+    //     const difficulty = userData.difficulty;
+    
+    //     const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+    //     const data = await apiCall.json();
+    
+    //     console.log("first question from api",data.results[0].question);
+      
+    //     // to get the whole data 
+    //     this.setState({
+    //       QuizQ:data.results
+    //     });
+    
+    // }
+
+    
+    // checkFinished(){
         
-    }
+    // }
 
 
     render() {
 
-        console.log("qm questions anserewd", this.state.questionsAnswered)
-        
-       console.log("index", this.state.playerIndex)
-        
+        // console.log("qm questions anserewd", this.state.questionsAnswered)
+        // console.log("index", this.state.playerIndex)
+     
+       // console.log("quizmanger question",this.props.quizData[0].question)
         return (
 
-   <div>
+            <div>
 
-          
-       {this.state.questionsAnswered === 5 ? 
-            
-             null:
-             <Quiz quizData={this.props.quizData} 
-                    playerInfo={this.props.playerInfo} 
-                    currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
-                    answeredQuestions={this.updateAnsweredQuestions} 
-                    isFinished={this.checkFinished}/>
-    
-       }
+                    
+                {this.state.questionsAnswered === 5 ? 
+                        
+                        "nothing here":
+                        <Quiz quizData={this.props.quizData} 
+                                playerInfo={this.props.playerInfo} 
+                                currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                                answeredQuestions={this.updateAnsweredQuestions} 
+                                isFinished={this.checkFinished}/>
+                
+                }
 
-    
-    </div>
+                
+                </div>
         
         
         
