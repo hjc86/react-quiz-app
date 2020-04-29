@@ -1,4 +1,4 @@
-//import styles from './Quiz.module.css';
+import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
 import QuizManager from '../containers/QuizManager';
@@ -48,6 +48,14 @@ class Quiz extends React.Component {
 
   }
 
+
+  refreshPage = () => {
+    window.location.reload(false);
+  }
+
+
+  render() {
+
       getQuizApi = async (userData) => {
 
         const categoryNumber = userData.category;
@@ -55,6 +63,7 @@ class Quiz extends React.Component {
     
         const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
         const data = await apiCall.json();
+
     
         console.log("first question from api", data.results[0].question);
         
@@ -79,10 +88,17 @@ class Quiz extends React.Component {
     render() {
      
       
+
     return (
       this.state.quizInstance === null ? "waiting to load":
 
         // this.props.isFinished === true? "quiz has finsihed do again?":
+
+
+          <div className={styles.startButtonDiv}>
+            <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
+          </div>
+
 
         <div>
           {this.props.currentPlayer}
@@ -91,15 +107,14 @@ class Quiz extends React.Component {
           latestPoint={this.updateScore} 
           answeredQuestions={this.updateAnsweredQuestions}/>)}
 
+
         </div>
            
     
         
         
       
-          
-  
-
+   
       // <div className={styles.quizDiv}>
       // <h3 className={styles.question}>Question : {this.props.questions}</h3>
 
