@@ -28,7 +28,13 @@ class Quiz extends React.Component {
       
     }) 
 
-    this.props.score(this.state.playerScore) 
+    let playerObj={
+      score: this.state.playerScore,
+      playerName: this.props.currentPlayer
+    }
+
+    //this.props.score(this.state.playerScore) 
+    this.props.score(playerObj)
     console.log("quiz instance player", this.state.playerScore)
   }
   
@@ -74,7 +80,7 @@ class Quiz extends React.Component {
     return (
       this.state.quizInstance === null ? "waiting to load":
 
-        this.props.isFinished === true? "quiz has finsihed do again?":
+        // this.props.isFinished === true? "quiz has finsihed do again?":
 
         <div>
           {this.props.currentPlayer}

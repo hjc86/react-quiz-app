@@ -13,7 +13,7 @@ class QuizManager extends Component {
             quizQA: null,
             score: 0,
             scoreArray: [],
-            isFinished: false
+           
         }
 
     }
@@ -35,15 +35,15 @@ class QuizManager extends Component {
     }
     
     
-    updateScore= (score)=>{
-        console.log("quizmanger score", score)
+    updateScore= (playerObj)=>{
+        console.log("quizmanger score", playerObj.score)
         console.log("quiz manger score array", this.state.scoreArray)
         console.log("Player index",this.state.playerIndex)
         if(this.state.questionsAnswered === 4){
 
             this.setState({
-                scoreArray: [...this.state.scoreArray, score],
-                score: score    
+                scoreArray: [...this.state.scoreArray, playerObj.score],
+                score: playerObj.score   
              })
             
 
@@ -56,24 +56,42 @@ class QuizManager extends Component {
         } 
     }  
 
+    // componentWillUpdate(){
+    //     console.log("index", this.state.playerIndex)
+    // }
+    componentDidUpdate(){
+        console.log("quiz master has updated")
+    
+    }
+
     render() {
-        console.log("player score array in quiz manager",this.state.scoreArray)
-        console.log("quiz finished" ,((this.state.questionsAnswered === 5) && (this.state.scoreArray.length===this.props.playerInfo.userName.length)))
+    
+        console.log("reach end",this.state.playerInde >= this.props.playerInfo.userName.length)
+        console.log(this.state.playerIndex,"/",this.props.playerInfo.userName.length)
         return (
 
             <div>
                 
-                {(this.state.questionsAnswered === 5)? 
-                        
-                        null:
+{/* 
+                //while index is less than number of players:
+                    rerender the component
+                 */}
+                
+                {/* {this.state.playerIndex >= this.props.playerInfo.userName.length?        */}
+                        {this.state.questionsAnswered === 5 && (this.state.playerIndex >= this.props.playerInfo.userName.length)?
+
+
+                        `here are the scores ${this.state.scoreArray} end of quiz here are the scores and the winner is find the`: 
+                            
                         <Quiz quizData={this.props.playerInfo} 
                         playerInfo={this.props.playerInfo} 
                         currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
                         answeredQuestions={this.updateAnsweredQuestions}
-                        score={this.updateScore}
-                        isFinished={this.state.checkFinished}/>
+                        score={this.updateScore}/>
+                        }
+                        
             
-                }
+                {/* } */}
 
                     
                   
