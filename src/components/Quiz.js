@@ -1,7 +1,7 @@
 import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
-import QuizManager from '../containers/QuizManager';
+
 import Question from './Question';
 
 class Quiz extends React.Component {
