@@ -1,7 +1,6 @@
 import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
-
 import Question from './Question';
 
 class Quiz extends React.Component {
@@ -85,13 +84,13 @@ class Quiz extends React.Component {
         this.state.quizInstance === null ? 
             `waiting for ${this.props.currentPlayer}s round to load load`:
 
-            <div>
+            <div className={styles.quizComponent}>
               
-              <div>
-                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}
+              <div className={styles.quizDeclaration}>
+                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}!
               </div>
               
-              <div>
+              <div className="quizQuestionsMapped">
                 {this.state.quizInstance.map((questionItem) => 
                 <Question questionData={questionItem} 
                 latestPoint={this.updateScore} 
