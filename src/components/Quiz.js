@@ -49,11 +49,6 @@ class Quiz extends React.Component {
   }
 
 
-  refreshPage = () => {
-    window.location.reload(false);
-  }
-
-
  
 
       getQuizApi = async (userData) => {
@@ -89,14 +84,8 @@ class Quiz extends React.Component {
           // this.props.isFinished === true? "quiz has finsihed do again?":
           <div>
 
-    
-
-            <div className={styles.startButtonDiv}>
-              <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
-            </div>
-
-
             <div>
+              {this.props.score}
               {this.props.currentPlayer}
               {this.state.quizInstance.map((questionItem) => 
               <Question questionData={questionItem} 

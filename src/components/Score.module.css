@@ -1,0 +1,16 @@
+.startButton {
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+    height: 100px;
+    border-radius: 40%;
+    color: white;
+    background-color: #e66767;
+    font-size: 20px;
+    border: none;
+}
+
+.startButtonDiv {
+    display: flex;
+    justify-content: center;
+}

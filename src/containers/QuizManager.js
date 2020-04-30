@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import Quiz from '../components/Quiz'
+import React, { Component } from 'react';
+import Quiz from '../components/Quiz';
+import Score from '../components/Score';
+// import styles from './Q'
 
 class QuizManager extends Component {
     constructor(props){
@@ -13,7 +15,8 @@ class QuizManager extends Component {
             quizQA: null,
             score: 0,
             scoreArray: [],
-            carryOn: true
+            carryOn: true, 
+            winner: null
         }
         
     }
@@ -54,7 +57,18 @@ class QuizManager extends Component {
                 carryOn: false
             })
         } 
-    }  
+    } 
+    
+    checkWinner = (winner) => {
+        if (this.props.scoreArray[0] > this.props.scoreArray[1])
+        {
+            console.log('user1 won', winner);
+            
+            this.setState({
+                winner: this.props.userName[0]
+            })
+        }
+    }
 
     // componentWillUpdate(){
     //     console.log("index", this.state.playerIndex)
@@ -84,8 +98,13 @@ class QuizManager extends Component {
                         //  && this.state.playerIndex!==2? */}
                         // {/* {this.state.playerIndex===2? */}
 
-                        `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName}of quiz here are the scores and the winner is find the`: 
-                            
+                        
+                        
+                        <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]} winner={this.checkwinner}/> :
+                        // <div className="divResults">
+                        // {`here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName}of quiz here are the scores and the winner is find the`} 
+                        // </div> :
+
                         <Quiz quizData={this.props.playerInfo} 
                         playerInfo={this.props.playerInfo} 
                         currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
