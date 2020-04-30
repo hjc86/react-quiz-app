@@ -86,10 +86,7 @@ class Question extends Component {
 
 
     componentDidMount(){
-
         this.createAnswerArray()
-       // this.props.currentScore(1)
-
     }
 
 
@@ -101,7 +98,7 @@ class Question extends Component {
                     <div>
                     
                   
-                    {this.state.randomisedAnswers === null ? "waiting for quiz generation" :
+                    {this.state.randomisedAnswers === null ? "waiting for quiz to be generated" :
                     
                         <React.Fragment>
         

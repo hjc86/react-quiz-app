@@ -1,10 +1,6 @@
 import React from 'react';
-
 import styles from './UserInfo.module.css';
-
-
 import ReactDOM from 'react-dom'
-
 
 class UserInfo extends React.Component{
 
@@ -15,25 +11,27 @@ class UserInfo extends React.Component{
         this.state = {
             userName : null,
             difficulty: null,
-            category: null
+            category: null,
+            categoryName: null
         }
-    }
+   }
 
 
     playerData = (event) => {
-            event.preventDefault();
-
-            const node = ReactDOM.findDOMNode(this);
-    
-            const userDataObj={
-                userName: node.querySelector('#username').value,
-                category: node.querySelector('#category').value,
-                difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value
-            }
-            console.log()
+            
+        event.preventDefault();
+        const node = ReactDOM.findDOMNode(this);
         
-    
-            this.props.playerData(userDataObj)
+        let categoryValue =node.querySelector('#category').value
+        
+        const userDataObj={
+            userName: node.querySelector('#username').value,
+            category: categoryValue,
+            difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value,
+            categoryName: node.querySelectorAll('option:checked')[0].attributes[0].nodeValue
+        }
+        console.log(node.querySelectorAll('option:checked')[0].attributes[0].nodeValue)//.getAttribute("name"))
+        this.props.playerData(userDataObj)
   
     }
 
@@ -44,7 +42,7 @@ class UserInfo extends React.Component{
             <div className= {styles.formDiv}>
                 <form onSubmit={this.playerData}>
                     <label className= {styles.player}>Player : </label>
-                    <input className= {styles.bar} type="text" name="username" id="username" placeholder="     insert player name"  required={true} />
+                    <input className= {styles.bar} type="text" name="username" id="username" placeholder="    insert player name(s)"  required={true} />
                     <p className={styles.diff}>Select Level</p>
                     <label className= {styles.text}>Easy </label>
                     <input type="radio" name="difficulty" id="easy" value="easy" required={true} />
@@ -54,14 +52,13 @@ class UserInfo extends React.Component{
                     <input type="radio" name="difficulty" id="difficult" value="hard"/>
                     <br />
                     {/* dropdown for categories */}
-                    <select id="category" name="category"  value={this.state.category} >
-                        <option value=""> Please Select Category</option>
-
-                        <option value="26">Celebrity</option>
-                        <option value="20">Mythodology</option>
-                        <option value="23">History</option>
-                        <option value="27">Animals</option>
-                        <option value="18">Science & Computers</option>
+                    <select id="category" name="category"  value={this.state.category} required={true}>
+                        <option name="Please Select Category" value=""> Please Select Category</option>
+                        <option name ="Celebrity" value="26">Celebrity</option>
+                        <option name="Mythology" value="20">Mythology</option>
+                        <option name="History" value="23">History</option>
+                        <option name="Animals" value="27">Animals</option>
+                        <option name="Science & Computers" value="18">Science & Computers</option>
                     </select> 
                         <div className={styles.buttonDiv}>
                             <button type="submit" className={styles.playbutton}>Play</button>
