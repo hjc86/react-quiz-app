@@ -26,7 +26,7 @@ class Quiz extends React.Component {
     }
 
     this.props.score(playerObj)
-    console.log("quiz instance player", this.state.playerScore)
+    console.log("quiz instance player score", this.state.playerScore)
   }
   
   updateAnsweredQuestions= async (currentAnswered)=>{

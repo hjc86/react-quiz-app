@@ -17,13 +17,13 @@ class Answer extends Component {
     }
 
     checkCorrect = async (event) => {
-        console.log(event.target.innerText)
-        console.log(this.props.correctAnswer)
+        // console.log(event.target.innerText)
+        // console.log(this.props.correctAnswer)
         
         let addPoint;
         if(event.target.innerText === this.props.correctAnswer){
 
-            console.log("correct answer clicked")
+            // console.log("correct answer clicked")
             addPoint= true
             this.setState({
                 backgroundStyle: "#63cdda",
@@ -31,7 +31,7 @@ class Answer extends Component {
             })
 
         }else{
-            console.log("you clicked wrong answer")
+            // console.log("you clicked wrong answer")
             addPoint= false
            
             this.setState({
