@@ -6,14 +6,13 @@ class QuizManager extends Component {
         super(props)
         
         this.state={
-            //currentPlayer: null,
             questionsAnswered: 0,
             playerIndex: 0,
             finished: false,
             quizQA: null,
             score: 0,
             scoreArray: [],
-            carryOn: true
+            quizFinished: false
         }
         
     }
@@ -27,8 +26,13 @@ class QuizManager extends Component {
         if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
             this.setState({
                 playerIndex: this.state.playerIndex+1,
-                questionsAnswered: 0
+                questionsAnswered: 0,
+                
             })
+        }
+
+        if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
+        console.log("this should cause quiz to end")
         }
     }
     
@@ -57,6 +61,7 @@ class QuizManager extends Component {
 
             <div>
                         {this.state.questionsAnswered === 5?
+                        // {/* {this.state.quizFinished === true? */}
                 
                         `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName} of quiz here are the scores and the winner is find the`: 
                             
