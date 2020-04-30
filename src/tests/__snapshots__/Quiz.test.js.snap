@@ -3,7 +3,3 @@
 exports[`<Quiz/> Renders correctly 1`] = `ShallowWrapper {}`;
 
 exports[`<Quiz/> renders correctly 1`] = `"waiting for 0s round to load load"`;
-
-exports[`Quiz Renders correctly 1`] = `ShallowWrapper {}`;
-
-exports[`Quiz renders correctly 1`] = `"waiting for 0s round to load load"`;
