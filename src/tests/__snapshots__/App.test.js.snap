@@ -6,62 +6,119 @@ exports[`App renders correctly 1`] = `
 <div
   className="container"
 >
-  <div>
+  <div
+    className="formDiv"
+  >
     <form
       onSubmit={[Function]}
     >
-      <label>
-        Username:
+      <label
+        className="player"
+      >
+        Player : 
       </label>
       <input
+        className="bar"
         id="username"
         name="username"
-        onChange={[Function]}
+        placeholder="    insert player name(s)"
+        required={true}
         type="text"
       />
-      <p>
-        Level of Difficulty:
+      <p
+        className="diff"
+      >
+        Select Level
       </p>
-      <label>
-        Easy
+      <label
+        className="text"
+      >
+        Easy 
       </label>
       <input
-        checked={false}
         id="easy"
         name="difficulty"
-        onChange={[Function]}
+        required={true}
         type="radio"
         value="easy"
       />
-      <label>
-        Medium
+      <label
+        className="text"
+      >
+        Medium 
       </label>
       <input
-        checked={false}
         id="medium"
         name="difficulty"
-        onChange={[Function]}
         type="radio"
         value="medium"
       />
-      <label>
-        Difficult
+      <label
+        className="text"
+      >
+        Difficult 
       </label>
       <input
-        checked={false}
         id="difficult"
         name="difficulty"
-        onChange={[Function]}
         type="radio"
-        value="difficult"
+        value="hard"
       />
-      <input
-        type="submit"
-      />
+      <br />
+      <select
+        id="category"
+        name="category"
+        required={true}
+        value={null}
+      >
+        <option
+          name="Please Select Category"
+          value=""
+        >
+           Please Select Category
+        </option>
+        <option
+          name="Celebrity"
+          value="26"
+        >
+          Celebrity
+        </option>
+        <option
+          name="Mythology"
+          value="20"
+        >
+          Mythology
+        </option>
+        <option
+          name="History"
+          value="23"
+        >
+          History
+        </option>
+        <option
+          name="Animals"
+          value="27"
+        >
+          Animals
+        </option>
+        <option
+          name="Science & Computers"
+          value="18"
+        >
+          Science & Computers
+        </option>
+      </select>
+      <div
+        className="buttonDiv"
+      >
+        <button
+          className="playbutton"
+          type="submit"
+        >
+          Play
+        </button>
+      </div>
     </form>
-  </div>
-  <div>
-    Score
   </div>
 </div>
 `;

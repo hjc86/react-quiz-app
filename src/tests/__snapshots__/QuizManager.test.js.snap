@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QuizManager/ > renders correctly 1`] = `
+<div>
+  waiting for Ts round to load load
+</div>
+`;

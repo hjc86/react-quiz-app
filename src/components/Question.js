@@ -17,12 +17,8 @@ class Question extends Component {
             clicked: false,
             userAnswers : []
         }
-
-
-
     }
    
-    
     createAnswerArray= ()=> {  
         let questionData= this.props.questionData 
         let answerArray= questionData.incorrect_answers.concat([questionData.correct_answer])
@@ -37,7 +33,6 @@ class Question extends Component {
         ) 
     }
     
-    
     getRandomArray= (array) => {
         const questionAnswerIndicies = []
         const randomisedAnswers = []
@@ -50,9 +45,7 @@ class Question extends Component {
             };   
         }
 
-        // console.log("randomised indicies",questionAnswerIndicies)
         return randomisedAnswers
-
     }
 
 
@@ -64,9 +57,6 @@ class Question extends Component {
             backgroundStyle: answerData.backgroundStyle
         })
 
-  
-        // console.log("should add point", answerData.addPoint)
-       
         if(answerData.addPoint){
             this.props.latestPoint(1)     
         }
@@ -74,64 +64,44 @@ class Question extends Component {
             this.props.latestPoint(0)
         }
         
-        this.props.answeredQuestions(1)
-       
-        //console.log("player score in qusestion componet", this.state.playerScore)
-
-        // let scoreUpdate = answerData.addPoint ? this.1: 0  
-        // this.props.currentScore(scoreUpdate)
-                    
+        this.props.answeredQuestions(1)                
     }
-
-
 
     componentDidMount(){
         this.createAnswerArray()
     }
 
-
-    render() {
-
-        
-                return (
-                    
-                    <div>
-                    
-                  
-                    {this.state.randomisedAnswers === null ? "waiting for quiz to be generated" :
-                    
-                        <React.Fragment>
-        
-                            <div style={{border: "5px solid black"}}>
-        
-        
-                                <div className="questionAnswers">
-                                            
-                                    {this.props.questionData.question}   
-        
-                                </div>
-        
-                            </div>
-        
-        
-                            {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
-                            {this.state.randomisedAnswers.map((answer)=> (
-                            <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} className={this.state.clicked ? "inactive": ""} /> 
-                            ))}
-        
-        
-                        </React.Fragment>
-                   
-                    }
-                     
-                     
-                  
-                    
-                        
-                       </div>
+    render(){
+        return (
+            
+            <div>
+                {this.state.randomisedAnswers === null ? 
+                    "waiting for quiz to be generated" :
                 
-                )
-            }
+                    <React.Fragment>
+
+                        <div style={{border: "5px solid black"}}>
+
+                            <div className="questionAnswers">
+                                        
+                                {this.props.questionData.question}   
+
+                            </div>
+
+                        </div>
+
+                        {this.state.randomisedAnswers.map((answer)=> (
+                            <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} className={this.state.clicked ? "inactive": ""} /> ))
+                        }
+
+                    </React.Fragment>
+            
+                }
+  
+            </div>
+                
+        )
+    }
 }
 
 
