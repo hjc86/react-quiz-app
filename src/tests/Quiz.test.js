@@ -73,7 +73,7 @@ let testData ={
 }
 
 
-describe(Quiz, () => {
+describe("<Quiz/>", () => {
     
 
     const essentialProps ={

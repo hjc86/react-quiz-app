@@ -81,9 +81,11 @@ class Quiz extends React.Component {
               
               <div>
                 {this.state.quizInstance.map((questionItem) => 
-                <Question questionData={questionItem} 
-                latestPoint={this.updateScore} 
-                answeredQuestions={this.updateAnsweredQuestions}/>)}
+                  <Question 
+                    questionData={questionItem} 
+                    latestPoint={this.updateScore} 
+                    answeredQuestions={this.updateAnsweredQuestions}/>)
+                  }
               </div>
               
         
