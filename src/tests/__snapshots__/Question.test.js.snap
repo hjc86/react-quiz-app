@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Question /> Renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Question /> renders correctly 1`] = `
+<div>
+  <div
+    style={
+      Object {
+        "border": "5px solid black",
+      }
+    }
+  >
+    <div
+      className="questionAnswers"
+    >
+      Hippocampus is the Latin name for which marine creature?
+    </div>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
+      Seahorse
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
+      Dolphin
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
+      Whale
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
+      Octopus
+    </button>
+  </div>
+</div>
+`;

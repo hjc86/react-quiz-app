@@ -24,6 +24,7 @@ class Score extends React.Component{
     }
     refreshPage = () => {
         window.location.reload(false);
+
       }
     render() {
         console.log("username arary", this.props.userNameArray)
@@ -45,6 +46,7 @@ class Score extends React.Component{
                 <div className={styles.startButtonDiv}>
                         <button className={styles.startButton} onClick={this.refreshPage}>Play Again</button>
                 </div>
+
             </div>
         )
     }

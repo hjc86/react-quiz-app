@@ -12,19 +12,12 @@ class Quiz extends React.Component {
       playerScore: 0,
       questionsAnswered: 0,
       quizInstance: null
-      
     }
-
   }
 
   updateScore= async (currentScore)=>{
-    console.log("is number in quiz component", Number.isInteger(currentScore))
-    console.log("player score in quiz component", this.state.playerScore)
-    console.log("player score update quiz component",this.state.playerScore+currentScore)
-    
     await this.setState({
       playerScore: this.state.playerScore+currentScore
-      
     }) 
 
     let playerObj={
@@ -32,7 +25,6 @@ class Quiz extends React.Component {
       playerName: this.props.currentPlayer
     }
 
-    //this.props.score(this.state.playerScore) 
     this.props.score(playerObj)
     console.log("quiz instance player", this.state.playerScore)
   }
@@ -40,61 +32,57 @@ class Quiz extends React.Component {
   updateAnsweredQuestions= async (currentAnswered)=>{
     await this.setState({
       questionsAnswered: this.state.questionsAnswered+currentAnswered
-      
     })
 
     this.props.answeredQuestions(this.state.questionsAnswered) 
-
   }
-
 
   refreshPage = () => {
     window.location.reload(false);
   }
 
+  getQuizApi = async (userData) => {
 
-      getQuizApi = async (userData) => {
+    const categoryNumber = userData.category;
+    const difficulty = userData.difficulty;
 
-        const categoryNumber = userData.category;
-        const difficulty = userData.difficulty;
+    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+    const data = await apiCall.json();
+
+    this.setState({
+          quizInstance: data.results
+    })
+  } 
+
+
+  componentDidMount =()=>{
     
-        const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
-        const data = await apiCall.json();
-
-    
-        console.log("first question from api", data.results[0].question);
-        
-        this.setState({
-             quizInstance: data.results
-        })
+    this.getQuizApi(this.props.playerInfo)
   
-    
-    }
+  }
+  
 
+  render() {
+    let categoryName="PLACEHOLDER"
 
-       componentDidMount =()=>{
-
-      this.getQuizApi(this.props.playerInfo)
-    
-    }
-    
-
-    render() {
-      return (
-        this.state.quizInstance === null ? 
-            `waiting for ${this.props.currentPlayer}s round to load load`:
+    return (
+      this.state.quizInstance === null ? 
+            `waiting for ${this.props.currentPlayer}s round to load load`  :
 
             <div className={styles.quizComponent}>
               
               <div className={styles.quizDeclaration}>
                 {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}!
+
               </div>
               
               <div className="quizQuestionsMapped">
                 {this.state.quizInstance.map((questionItem) => 
-                <Question questionData={questionItem} 
-                latestPoint={this.updateScore} 
-                answeredQuestions={this.updateAnsweredQuestions}/>)}
+                  <Question 
+                    questionData={questionItem} 
+                    latestPoint={this.updateScore} 
+                    answeredQuestions={this.updateAnsweredQuestions}/>)
+                  }
               </div>
               
         

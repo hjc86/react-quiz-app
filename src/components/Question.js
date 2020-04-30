@@ -18,8 +18,9 @@ class Question extends Component {
             userAnswers : []
         }
     }
-    createAnswerArray= ()=> {
-        let questionData= this.props.questionData
+
+    createAnswerArray= ()=> {  
+        let questionData= this.props.questionData 
         let answerArray= questionData.incorrect_answers.concat([questionData.correct_answer])
         let arr = this.getRandomArray(answerArray)
         this.setState(
@@ -30,6 +31,7 @@ class Question extends Component {
             }
         )
     }
+
     getRandomArray= (array) => {
         const questionAnswerIndicies = []
         const randomisedAnswers = []
@@ -40,7 +42,7 @@ class Question extends Component {
                 randomisedAnswers.push(array[randomIndex])
             };
         }
-        // console.log(“randomised indicies”,questionAnswerIndicies)
+
         return randomisedAnswers
     }
     hasBeenClicked = (answerData)=>{
@@ -49,13 +51,14 @@ class Question extends Component {
             selectedAnswer: answerData.selectedAnswer,
             backgroundStyle: answerData.backgroundStyle
         })
-        // console.log(“should add point”, answerData.addPoint)
+
         if(answerData.addPoint){
             this.props.latestPoint(1)
         }
         else{
             this.props.latestPoint(0)
         }
+
         this.props.answeredQuestions(1)
         //console.log(“player score in qusestion componet”, this.state.playerScore)
         // let scoreUpdate = answerData.addPoint ? this.1: 0
@@ -83,5 +86,6 @@ class Question extends Component {
                        </div>
                 )
             }
+
 }
 export default Question
