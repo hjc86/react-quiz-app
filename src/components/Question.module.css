@@ -1,0 +1,22 @@
+.questionsGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionBox{
+    
+}
+
+.questionTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color : white;
+    border: solid white;
+    margin: 20px;
+    border-radius: 15px;
+}
