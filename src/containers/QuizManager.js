@@ -72,7 +72,7 @@ class QuizManager extends Component {
                             <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]}/> :
                     
 
-                            <Quiz quizData={this.props.playerInfo} 
+                            <Quiz
                             playerInfo={this.props.playerInfo} 
                             currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
                             answeredQuestions={this.updateAnsweredQuestions}

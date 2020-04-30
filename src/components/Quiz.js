@@ -13,7 +13,6 @@ class Quiz extends React.Component {
       playerScore: 0,
       questionsAnswered: 0,
       quizInstance: null
-      
     }
 
   }
@@ -63,7 +62,7 @@ class Quiz extends React.Component {
         const data = await apiCall.json();
 
     
-        console.log("first question from api", data.results[0].question);
+        // console.log("first question from api", data.results[0].question);
         
         this.setState({
              quizInstance: data.results
@@ -77,10 +76,15 @@ class Quiz extends React.Component {
 
       this.getQuizApi(this.props.playerInfo)
     
-    }
+      }
     
 
     render() {
+
+      //console.log(this.props.playerInfo.categoryName)
+      //let {userName,difficulty,category,categoryName} = this.props.playerInfo
+      let categoryName="PLACEHOLDER"
+
       return (
         this.state.quizInstance === null ? 
             `waiting for ${this.props.currentPlayer}s round to load load`:
@@ -88,7 +92,10 @@ class Quiz extends React.Component {
             <div>
               
               <div>
-                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}
+                {this.props.currentPlayer} you are being quizzed on    {categoryName}
+                {/* {this.props.playerInfo.categoryName} */}
+           
+                
               </div>
               
               <div>
