@@ -85,7 +85,14 @@ class Quiz extends React.Component {
         this.state.quizInstance === null ? `waiting for ${this.props.currentPlayer}s round to load load`:
 
           <div>
-            <div className={styles.startButtonDiv}>
+
+
+            <div>
+              {this.props.score}
+              {this.props.currentPlayer}
+            <div/>
+            
+          <div className={styles.startButtonDiv}>
               <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
             </div>
 
@@ -96,6 +103,7 @@ class Quiz extends React.Component {
             
             <div>
               
+
               {this.state.quizInstance.map((questionItem) => 
               <Question questionData={questionItem} 
               latestPoint={this.updateScore} 

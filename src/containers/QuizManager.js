@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import Quiz from '../components/Quiz'
+import React, { Component } from 'react';
+import Quiz from '../components/Quiz';
+import Score from '../components/Score';
+// import styles from './Q'
 
 class QuizManager extends Component {
     constructor(props){
@@ -12,7 +14,10 @@ class QuizManager extends Component {
             quizQA: null,
             score: 0,
             scoreArray: [],
+            carryOn: true, 
+            winner: null,
             quizFinished: false
+
         }
         
     }
@@ -47,8 +52,18 @@ class QuizManager extends Component {
                 score: playerObj.score   
              })
         }
-    }  
 
+        console.log()
+        if(this.state.scoreArray.length===this.props.playerInfo.userName.length){
+            this.setState({
+                carryOn: false
+            })
+        } 
+    } 
+    
+   
+
+    }  
 
     componentDidUpdate(){
         console.log("quiz master has updated")
@@ -61,6 +76,22 @@ class QuizManager extends Component {
 
             <div>
                         {this.state.questionsAnswered === 5?
+
+                        //  && this.state.playerIndex!==2? */}
+                        // {/* {this.state.playerIndex===2? */}
+
+                        
+                        
+                        <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]} winner={this.checkwinner}/> :
+                        // <div className="divResults">
+                        // {`here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName}of quiz here are the scores and the winner is find the`} 
+                        // </div> :
+
+                        <Quiz quizData={this.props.playerInfo} 
+                        playerInfo={this.props.playerInfo} 
+                        currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                        answeredQuestions={this.updateAnsweredQuestions}
+                        score={this.updateScore}/>
                         // {/* {this.state.quizFinished === true? */}
                 
                         `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName} of quiz here are the scores and the winner is find the`: 
@@ -70,6 +101,7 @@ class QuizManager extends Component {
                                 currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
                                 answeredQuestions={this.updateAnsweredQuestions}
                                 score={this.updateScore}/>
+
                         }
                 
             </div>
