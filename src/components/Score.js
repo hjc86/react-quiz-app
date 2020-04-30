@@ -9,23 +9,25 @@ class Score extends React.Component{
         super(props)
 
         this.state={
-            // winner: " "
+            winner: " "
         }
     }
     
-    // checkWinner = (winner) => {
-    //     if (this.props.scoreArray[0] > this.props.scoreArray[1])
-    //     {
-    //         console.log('user1 won', winner);
+    checkWinner = (winner) => {
+        if (this.props.scoreArray[0] > this.props.scoreArray[1])
+        {
+            console.log('user1 won', winner);
 
-    //         this.setState({
-    //             winner: this.props.userName[0]
-    //         })
-    //     }
-    // }
+            this.setState({
+                winner: this.props.userName[0]
+            })
+        }
+    }
 
-    componentDidUpdate(){
+   
+    componentDidMount(){
         console.log("score updated ")
+        this.checkWinner();
     }
 
     refreshPage = () => {
