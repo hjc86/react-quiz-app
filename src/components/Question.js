@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from "react-dom"
 import Answer from './Answer'
 import '../App.css';
-import Score from './Score'
+import Score from './Score';
+import styles from './Question.module.css';
+
 
 
 class Question extends Component {
@@ -95,17 +97,17 @@ class Question extends Component {
         
                 return (
                     
-                    <div>
+                    <div className={styles.questionGroup}>
                     
                   
                     {this.state.randomisedAnswers === null ? "waiting for quiz to be generated" :
                     
                         <React.Fragment>
         
-                            <div style={{border: "5px solid black"}}>
+                            <div className={styles.questionTitle}>
         
-        
-                                <div className="questionAnswers">
+
+                                <div className={styles.questionBox}>
                                             
                                     {this.props.questionData.question}   
         

@@ -41,16 +41,30 @@ class Score extends React.Component{
 
 
         return(
-            <div> 
-                <h1>The winner is: </h1>
+            <div className={styles.scoreComponent}> 
+                <div className={styles.scoreComponentResults}>
+                    <h1 className={styles.scoreResultsChild}>The winner is: </h1>
+                    
+                    <p className={styles.scoreResultsChild}>{this.props.userName[0]} scored {this.props.scoreArray[0]}/5!</p>
+                    <p className={styles.scoreResultsChild}>{this.props.userName[1]} scored {this.props.scoreArray[1]}/5!</p> 
+                    
+                </div>
 
-                <p>{this.props.userName[0]} scored {this.props.scoreArray[0]}/5!</p>
-            
-                <p>{this.props.userName[1]} scored {this.props.scoreArray[1]}/5!</p> 
+                <div className={styles.skyContainer}>
+                    <div className={styles.star}></div>
+                    <div className={styles.star}></div>
+                    <div className={styles.star}></div>
+                    <div className={styles.star}></div>
+                    <div className={styles.star} ></div>
+                </div>
+
+                
 
                 <div className={styles.startButtonDiv}>
-                <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
-            </div>
+                        <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
+                </div>
+
+                
                 
             </div>
             
