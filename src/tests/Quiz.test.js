@@ -75,48 +75,47 @@ let testData ={
 
 describe(Quiz, () => {
     
-    
-    let playerInfo ={
-        userName: "tom",
-        difficulty: "easy",
-        categoryName: "Animals"
+
+    const essentialProps ={
+      playerInfo:{
+        userName: "Tom",
+        difficulty: "Hard",
+        category: "null",
+        categoryName: "Animals"}, 
+      currentPlayer:0,
+      answeredQuestions:0,
+      score:0
     }
+
+    let componentWithProps = <Quiz {...essentialProps}/>
+    let wrapper;
+
+    
 
     it('mounts to DOM', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Quiz />, div);
+        ReactDOM.render(componentWithProps, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('renders correctly', () => {
         const tree = renderer
-            .create(<Quiz />)
+            .create(componentWithProps)
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
 
-    let wrapper;
-    beforeEach(() => wrapper = shallow(<Quiz />));
+    beforeEach(() => wrapper = shallow(componentWithProps));
     
     it('Renders correctly', () => {
         expect(wrapper).toMatchSnapshot();
     })
-
-
-
     
     beforeEach(() => wrapper.setState({quizInstance: testData.results}))
+
     it('should render 5 <Question /> if quizInstance state is not null',()=>{
 
-        //let wrapper = mount(<Quiz />)
-      
-        console.log(playerInfo)
         wrapper.setState({quizInstance: testData.results})
-        wrapper.setProps({playerInfo:{
-            userName: "tom",
-            difficulty: "easy",
-            categoryName: "Animals"
-        }})
         
         expect(wrapper.find(Question)).toHaveLength(5)
     })
