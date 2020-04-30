@@ -1,20 +1,16 @@
-.quizDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.startButton {
+    width: 150px;
     text-align: center;
-    width: 800px;
-    margin: auto;
-    background: #360033;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #0b8793, #360033);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #0b8793, #360033); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    margin: 10px;
+    height: 100px;
+    border-radius: 40%;
     color: white;
-    padding: 10px;
-
+    background-color: #e66767;
+    font-size: 20px;
+    border: none;
 }
 
-.question {
-    padding: 10px;
-    margin: 10px;
-
+.startButtonDiv {
+    display: flex;
+    justify-content: center;
 }
