@@ -91,6 +91,8 @@ Your website should have the following technical functionality:
     - Random Thoughts : Helder (write a book about GitHub problems)
     - No blockers identified
 
+    - Tasks Completed :  Winner logic fixed, further tests done, final styling applied with animation, BackUp branch created, For final review and merge the morning of Demo Day. 
+
 
 
 

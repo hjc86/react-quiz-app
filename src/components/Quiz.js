@@ -67,12 +67,12 @@ class Quiz extends React.Component {
 
     return (
       this.state.quizInstance === null ? 
-            `waiting for ${this.props.currentPlayer}s round to load load`  :
+            <span className={styles.Bee}> We're BEEZZY loading {this.props.currentPlayer}'s quiz </span>  :
 
             <div className={styles.quizComponent}>
               
               <div className={styles.quizDeclaration}>
-                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}!
+                {this.props.currentPlayer} you are being WHUIZZED on {this.props.playerInfo.categoryName}!
 
               </div>
               
