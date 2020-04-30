@@ -59,6 +59,8 @@ class QuizManager extends Component {
             })
         } 
     } 
+
+    
     
 
 
