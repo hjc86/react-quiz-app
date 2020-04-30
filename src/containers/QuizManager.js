@@ -65,8 +65,10 @@ class QuizManager extends Component {
     render() {
 
         return (
-
+          
             <div>
+                  <p></p>
+
                         {this.state.questionsAnswered === 5?
                         
                             <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]}/> :

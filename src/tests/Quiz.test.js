@@ -73,8 +73,9 @@ let testData ={
 }
 
 
-
 describe(Quiz, () => {
+    
+    
     let playerInfo ={
         userName: "tom",
         difficulty: "easy",
@@ -96,6 +97,7 @@ describe(Quiz, () => {
 
     let wrapper;
     beforeEach(() => wrapper = shallow(<Quiz />));
+    
     it('Renders correctly', () => {
         expect(wrapper).toMatchSnapshot();
     })

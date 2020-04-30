@@ -49,8 +49,8 @@ class Score extends React.Component{
                 <p>{this.props.userName[1]} scored {this.props.scoreArray[1]}/5!</p> 
 
                 <div className={styles.startButtonDiv}>
-                <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
-            </div>
+                    <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
+                </div>
                 
             </div>
             
