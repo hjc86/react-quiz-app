@@ -36,31 +36,12 @@ getUserData = async (playerData) =>{
   await this.setState({ // wait for user data to be set
     userName: playerData.userName.split(','),
     difficulty: playerData.difficulty,
-    category: playerData.category
+    category: playerData.category,
+    categoryName: playerData.categoryName
+
   })
   
-  // //then trigger the getQuiz api
-  // await this.getQuizApi(this.state);
 }
-
-
- // Fetch data from api
-// getQuizApi = async (userData) => {
-
-//     const categoryNumber = userData.category;
-//     const difficulty = userData.difficulty;
-
-//     const apiCall = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
-//     const data = await apiCall.json();
-
-//    // console.log("first question from api",data.results[0].question);
-  
-//     // to get the whole data 
-//     this.setState({
-//       QuizQ:data.results
-//     });
-
-// }
 
 
 render() {

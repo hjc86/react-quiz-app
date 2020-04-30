@@ -19,10 +19,6 @@ class Answer extends Component {
     checkCorrect = async (event) => {
         console.log(event.target.innerText)
         console.log(this.props.correctAnswer)
-
-        //const node = ReactDOM.findDOMNode(this)
-
-        //console.log(node.querySelectorAll('.answer'))
         
         let addPoint;
         if(event.target.innerText === this.props.correctAnswer){

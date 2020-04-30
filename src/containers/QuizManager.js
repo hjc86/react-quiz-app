@@ -8,7 +8,6 @@ class QuizManager extends Component {
         super(props)
         
         this.state={
-            //currentPlayer: null,
             questionsAnswered: 0,
             playerIndex: 0,
             finished: false,
@@ -16,11 +15,12 @@ class QuizManager extends Component {
             score: 0,
             scoreArray: [],
             carryOn: true, 
-            winner: null
+            winner: null,
+            quizFinished: false
+
         }
         
     }
-    
     
     updateAnsweredQuestions=(questionsAnswered)=>{
         console.log("quizmanger answered qs", questionsAnswered )
@@ -31,26 +31,28 @@ class QuizManager extends Component {
         if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
             this.setState({
                 playerIndex: this.state.playerIndex+1,
-                questionsAnswered: 0
+                questionsAnswered: 0,
+                
             })
         }
 
+        if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
+        console.log("this should cause quiz to end")
+        }
     }
-    
     
     updateScore= (playerObj)=>{
         console.log("quizmanger score", playerObj.score)
         console.log("quiz manger score array", this.state.scoreArray)
         console.log("Player index",this.state.playerIndex)
-        if(this.state.questionsAnswered === 4){
 
+        if(this.state.questionsAnswered === 4){
             this.setState({
                 scoreArray: [...this.state.scoreArray, playerObj.score],
                 score: playerObj.score   
              })
-            
-
         }
+
         console.log()
         if(this.state.scoreArray.length===this.props.playerInfo.userName.length){
             this.setState({
@@ -61,31 +63,20 @@ class QuizManager extends Component {
     
    
 
-    // componentWillUpdate(){
-    //     console.log("index", this.state.playerIndex)
-    // }
+    }  
+
     componentDidUpdate(){
         console.log("quiz master has updated")
     
     }
 
     render() {
-    
-        console.log("reach end",this.state.playerInde >= this.props.playerInfo.userName.length)
-        console.log(this.state.playerIndex,"/",this.props.playerInfo.userName.length)
-        
-        
+
         return (
 
             <div>
-                
-{/* 
-                //while index is less than number of players:
-                    rerender the component
-                 */}
-                
-                {/* {this.state.playerIndex >= this.props.playerInfo.userName.length?        */}
                         {this.state.questionsAnswered === 5?
+
                         //  && this.state.playerIndex!==2? */}
                         // {/* {this.state.playerIndex===2? */}
 
@@ -101,19 +92,19 @@ class QuizManager extends Component {
                         currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
                         answeredQuestions={this.updateAnsweredQuestions}
                         score={this.updateScore}/>
-                        }
-                        
-            
-                {/* } */}
+                        // {/* {this.state.quizFinished === true? */}
+                
+                        `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName} of quiz here are the scores and the winner is find the`: 
+                            
+                        <Quiz   quizData={this.props.playerInfo} 
+                                playerInfo={this.props.playerInfo} 
+                                currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                                answeredQuestions={this.updateAnsweredQuestions}
+                                score={this.updateScore}/>
 
-                    
-                  
-           
+                        }
                 
             </div>
-        
-        
-        
         
         )
     }
