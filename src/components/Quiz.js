@@ -82,40 +82,26 @@ class Quiz extends React.Component {
 
     render() {
       return (
-        this.state.quizInstance === null ? `waiting for ${this.props.currentPlayer}s round to load load`:
+        this.state.quizInstance === null ? 
+            `waiting for ${this.props.currentPlayer}s round to load load`:
 
-          <div>
-
-
-            <div>
-              {this.props.score}
-              {this.props.currentPlayer}
-            <div/>
-            
-          <div className={styles.startButtonDiv}>
-              <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
-            </div>
-
-            <div>
-             {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}
-           
-            </div>
-            
             <div>
               
-
-              {this.state.quizInstance.map((questionItem) => 
-              <Question questionData={questionItem} 
-              latestPoint={this.updateScore} 
-              answeredQuestions={this.updateAnsweredQuestions}/>)}
-
-
-            </div>
-            
-      
-          
-          </div>
+              <div>
+                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}
+              </div>
+              
+              <div>
+                {this.state.quizInstance.map((questionItem) => 
+                <Question questionData={questionItem} 
+                latestPoint={this.updateScore} 
+                answeredQuestions={this.updateAnsweredQuestions}/>)}
+              </div>
+              
         
+            
+            </div>
+          
     
         // <div className={styles.quizDiv}>
         // <h3 className={styles.question}>Question : {this.props.questions}</h3>

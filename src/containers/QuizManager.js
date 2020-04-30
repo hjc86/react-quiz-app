@@ -18,8 +18,7 @@ class QuizManager extends Component {
             winner: null,
             quizFinished: false
 
-        }
-        
+        }  
     }
     
     updateAnsweredQuestions=(questionsAnswered)=>{
@@ -61,14 +60,7 @@ class QuizManager extends Component {
         } 
     } 
     
-   
 
-    }  
-
-    componentDidUpdate(){
-        console.log("quiz master has updated")
-    
-    }
 
     render() {
 
@@ -76,33 +68,18 @@ class QuizManager extends Component {
 
             <div>
                         {this.state.questionsAnswered === 5?
-
-                        //  && this.state.playerIndex!==2? */}
-                        // {/* {this.state.playerIndex===2? */}
-
                         
-                        
-                        <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]} winner={this.checkwinner}/> :
-                        // <div className="divResults">
-                        // {`here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName}of quiz here are the scores and the winner is find the`} 
-                        // </div> :
+                            <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]}/> :
+                    
 
-                        <Quiz quizData={this.props.playerInfo} 
-                        playerInfo={this.props.playerInfo} 
-                        currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
-                        answeredQuestions={this.updateAnsweredQuestions}
-                        score={this.updateScore}/>
-                        // {/* {this.state.quizFinished === true? */}
-                
-                        `here are the scores ${this.state.scoreArray} for ${this.props.playerInfo.userName} of quiz here are the scores and the winner is find the`: 
-                            
-                        <Quiz   quizData={this.props.playerInfo} 
-                                playerInfo={this.props.playerInfo} 
-                                currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
-                                answeredQuestions={this.updateAnsweredQuestions}
-                                score={this.updateScore}/>
-
+                            <Quiz quizData={this.props.playerInfo} 
+                            playerInfo={this.props.playerInfo} 
+                            currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
+                            answeredQuestions={this.updateAnsweredQuestions}
+                            score={this.updateScore}/>
+                    
                         }
+           
                 
             </div>
         
