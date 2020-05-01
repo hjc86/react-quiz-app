@@ -1,3 +1,12 @@
+
+.Bee {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 25px;
+}
+
+
 .quizComponent {
     display: flex;
     flex-direction: column;
@@ -15,6 +24,9 @@
     color: #130F40;
     font-size: 20px;
     margin: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
 }
 
 .quizQuestionsMapped {

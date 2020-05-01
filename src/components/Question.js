@@ -5,7 +5,6 @@ import '../App.css';
 import Score from './Score';
 import styles from './Question.module.css';
 
-
 class Question extends Component {
     constructor(props){
         super(props)
@@ -69,12 +68,19 @@ class Question extends Component {
     }
     render() {
                 return (
+                    
                     <div className={styles.questionGroup}>
+
                     {this.state.randomisedAnswers === null ? "waiting for quiz to be generated" :
                         <React.Fragment>
+        
                             <div className={styles.questionTitle}>
+        
+
                                 <div className={styles.questionBox}>
-                                    {this.props.questionData.question}
+                                            
+                                    {this.props.questionData.question}   
+        
                                 </div>
                             </div>
                             {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}

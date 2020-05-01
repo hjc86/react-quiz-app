@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Score.module.css';
+import ScoreBoard from './ScoreBoard';
+import ScoreCount from './ScoreCount';
 
 class Score extends React.Component{
     constructor(props){
@@ -8,6 +10,7 @@ class Score extends React.Component{
             winner: []
         }
     }
+
 
     checkWinner = async () =>{ 
 
@@ -47,17 +50,21 @@ class Score extends React.Component{
     
 
     render() {
+
         
         console.log(" rendered winners", this.state.winner)
         console.log("carry on",this.props.carryOn)
+
+
         return(
-            <div className={styles.scoreComponent}>
+            <div className={styles.scoreComponent}> 
                 <div className={styles.scoreComponentResults}>
                     <h1 className={styles.scoreResultsChild}>Score Board</h1>
           
                         {this.props.scoreArray.map((playerScore, index) =>                                      
                             <p className={styles.scoreResultsChild}>{this.props.userName[index]} scored {playerScore}/5!</p>
                         )}
+
                 </div>
                 
                 <div className={styles.skyContainer}>   
@@ -81,11 +88,15 @@ class Score extends React.Component{
                 </div>
 
                 <div className={styles.startButtonDiv}>
-                        <button className={styles.startButton} onClick={this.refreshPage}>Play Again</button>
+                        <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
                 </div>
+
 
             </div>
         )
     }
 }
+
+
 export default Score;
+

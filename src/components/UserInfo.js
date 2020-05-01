@@ -42,7 +42,7 @@ class UserInfo extends React.Component{
             <div className= {styles.formDiv}>
                 <div className={styles.formContainer}>
                     <form onSubmit={this.playerData}>
-                        <label className= {styles.player}>Player(s) : </label>
+                        <label className= {styles.player}>Player(s)</label> <br />
                         <input className= {styles.bar} type="text" name="username" id="username" placeholder="insert player name(s)"  required={true} />
                         <p className={styles.diff}>Select Level</p>
                         <label className= {styles.text}>Easy </label>

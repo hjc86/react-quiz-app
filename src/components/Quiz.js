@@ -3,6 +3,7 @@ import React from 'react';
 import Score from'./Score'
 import Question from './Question';
 
+
 class Quiz extends React.Component {
 
   constructor(props){
@@ -46,7 +47,10 @@ class Quiz extends React.Component {
     const categoryNumber = userData.category;
     const difficulty = userData.difficulty;
 
-    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+
+    // header('content-type:text/html;charset=utf-8');
+    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple&dencode=base64`)
+    
     const data = await apiCall.json();
 
     this.setState({
@@ -67,12 +71,12 @@ class Quiz extends React.Component {
 
     return (
       this.state.quizInstance === null ? 
-            `waiting for ${this.props.currentPlayer}s round to load load`  :
+            <span className={styles.Bee}> We're BEEZZY loading {this.props.currentPlayer}'s quiz </span>  :
 
             <div className={styles.quizComponent}>
               
               <div className={styles.quizDeclaration}>
-                {this.props.currentPlayer} you are being quizzed on {this.props.playerInfo.categoryName}!
+                {this.props.currentPlayer} you are being WHUIZZED on {this.props.playerInfo.categoryName}!
 
               </div>
               

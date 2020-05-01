@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import UserInfo from "./components/UserInfo";
+import UserInfo from "../components/UserInfo";
 import renderer from 'react-test-renderer';
 import ReactDOM from "react-dom";
 
@@ -24,9 +24,12 @@ import ReactDOM from "react-dom";
 //     const wrapper = mount(<Search/>)
 //   })
 
-  it('renders 2 search input elements in form', () => {
+describe("<UserInfo />", () => {
+
+
+  it('renders 4  input elements in form', () => {
     const wrapper = shallow(<UserInfo/>)
-    expect(wrapper.find('input').length).toEqual(5);
+    expect(wrapper.find('input').length).toEqual(4);
   })
 
 
@@ -67,3 +70,5 @@ import ReactDOM from "react-dom";
 
 
   })
+
+}

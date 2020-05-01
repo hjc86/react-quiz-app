@@ -1,0 +1,9 @@
+.scoreBoardList {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #95afc0;
+    color: #130F40;
+}

@@ -12,24 +12,47 @@ exports[`<Score /> renders correctly 1`] = `
     <h1
       className="scoreResultsChild"
     >
-      Score Board 
-    </h1>
-    <p
-      className="scoreResultsChild"
-    >
-      a
-       scored 
-      0
-      /5!
-    </p>
-    <p
-      className="scoreResultsChild"
-    >
+      The winner is:
       b
-       scored 
-      1
-      /5!
-    </p>
+       
+    </h1>
+    <h3
+      className="scoreResultsChild"
+    >
+      Scoreboard
+    </h3>
+    <div
+      className="scoreGroup"
+    >
+      <div
+        className="scoreBoard"
+      >
+        <div
+          className="scoreBoardList"
+        >
+          a
+        </div>
+        <div
+          className="scoreBoardList"
+        >
+          b
+        </div>
+      </div>
+      <div
+        className="scoreCount"
+      >
+        <div
+          className="scoreCountList"
+        >
+          0
+        </div>
+        <div
+          className="scoreCountList"
+        >
+          1
+        </div>
+      </div>
+    </div>
   </div>
   <div
     className="skyContainer"
@@ -57,7 +80,7 @@ exports[`<Score /> renders correctly 1`] = `
       className="startButton"
       onClick={[Function]}
     >
-      Play Again
+      Start New Quiz!
     </button>
   </div>
 </div>

@@ -2,6 +2,12 @@
 
 exports[`<QuizManager/ > renders correctly 1`] = `
 <div>
-  waiting for Ts round to load load
+  <span
+    className="Bee"
+  >
+     We're BEEZZY loading 
+    T
+    's quiz 
+  </span>
 </div>
 `;

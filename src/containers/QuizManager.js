@@ -50,7 +50,6 @@ class QuizManager extends Component {
         } 
     } 
 
-
     render() {
         return (
             <div>

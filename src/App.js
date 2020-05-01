@@ -32,7 +32,7 @@ render() {
           
         { this.state.userName === null? 
           <UserInfo playerData={this.getUserData} /> : 
-          <QuizManager playerInfo={this.state}/>
+          <QuizManager playerInfo={this.state} />
         }
         
         </div>
