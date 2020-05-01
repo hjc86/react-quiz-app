@@ -21,7 +21,7 @@ describe("<QuizManager/ >", () => {
     let wrapper;
     
     beforeEach(() => wrapper = shallow(componentWithProps));
-    beforeEach(() => wrapper.setState({questionsAnswered: 5}))
+    //beforeEach(() => wrapper.setState({questionsAnswered: 5}))
     
     it('should mount to DOM', () => {
         const div = document.createElement('div');
@@ -41,20 +41,13 @@ describe("<QuizManager/ >", () => {
         expect(wrapper.find('div').length).toEqual(1);
     });
 
-   
-
     it('should render 1 <Quiz /> if questionsAnswered state is not equal to 5',()=>{
         wrapper.setState({questionsAnswered: 0})
-        //wrapper.setState({quizInstance: testData.results})
-        
         expect(wrapper.find(Quiz)).toHaveLength(1)
     })
     
-   
     it('should render 1 <Score /> if questionsAnswered state is equal to 5',()=>{
         wrapper.setState({questionsAnswered: 5})
-        //wrapper.setState({quizInstance: testData.results})
-        
         expect(wrapper.find(Score)).toHaveLength(1)
     })
     

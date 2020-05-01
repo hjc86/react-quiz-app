@@ -12,51 +12,41 @@ exports[`<Score /> renders correctly 1`] = `
     <h1
       className="scoreResultsChild"
     >
-      The winner is:
-      b
-       
+      Score Board
     </h1>
-    <h3
+    <p
       className="scoreResultsChild"
     >
-      Scoreboard
-    </h3>
-    <div
-      className="scoreGroup"
+      a
+       scored 
+      0
+      /5!
+    </p>
+    <p
+      className="scoreResultsChild"
     >
-      <div
-        className="scoreBoard"
-      >
-        <div
-          className="scoreBoardList"
-        >
-          a
-        </div>
-        <div
-          className="scoreBoardList"
-        >
-          b
-        </div>
-      </div>
-      <div
-        className="scoreCount"
-      >
-        <div
-          className="scoreCountList"
-        >
-          0
-        </div>
-        <div
-          className="scoreCountList"
-        >
-          1
-        </div>
-      </div>
-    </div>
+      b
+       scored 
+      1
+      /5!
+    </p>
   </div>
   <div
     className="skyContainer"
   >
+    <div
+      className="winnerContainer"
+    >
+      <p
+        style={
+          Object {
+            "fontSize": "60px",
+          }
+        }
+      >
+        TIED
+      </p>
+    </div>
     <div
       className="star"
     />

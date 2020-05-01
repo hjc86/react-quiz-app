@@ -94,7 +94,6 @@ class Question extends Component {
 
                                 </div>
                             </div>
-                            {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
                             {this.state.randomisedAnswers.map((answer)=> (
                             <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} className={this.state.clicked ? "inactive": ""} />
                             ))}

@@ -10,9 +10,9 @@ class UserInfo extends React.Component{
         // set states for each user data
         this.state = {
             userName : null,
-            difficulty: null,
-            category: null,
-            categoryName: null
+            difficulty: "",
+            category: "",
+            categoryName: ""
         }
    }
 
@@ -22,13 +22,14 @@ class UserInfo extends React.Component{
         event.preventDefault();
         const node = ReactDOM.findDOMNode(this);
         
-        let categoryValue =node.querySelector('#category').value
+        // let categoryValue =node.querySelector('#category').value
         
         const userDataObj={
             userName: node.querySelector('#username').value,
-            category: categoryValue,
-            difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value,
-            categoryName: node.querySelectorAll('option:checked')[0].attributes[0].nodeValue
+            category: node.querySelector('#category').value,
+            categoryName: node.querySelectorAll('option:checked')[0].attributes[0].nodeValue,
+            difficulty: node.querySelectorAll("input[type=radio]:checked")[0].value
+           
         }
         console.log(node.querySelectorAll('option:checked')[0].attributes[0].nodeValue)//.getAttribute("name"))
         this.props.playerData(userDataObj)

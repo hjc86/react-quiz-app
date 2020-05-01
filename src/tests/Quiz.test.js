@@ -120,7 +120,7 @@ describe("<Quiz/>", () => {
         expect(wrapper.find(Question)).toHaveLength(5)
     })
 
-    it('should render a <div />', () => {
+    it('should render <div />', () => {
         expect(wrapper.find('div').length).toEqual(3);
     });
 
