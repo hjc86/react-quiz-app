@@ -80,9 +80,6 @@ class Score extends React.Component{
                     <div className={styles.star} ></div>
                 </div>
 
-            
-            
-
                 <div className={styles.startButtonDiv}>
                         <button className={styles.startButton} onClick={this.refreshPage}>Play Again</button>
                 </div>

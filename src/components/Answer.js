@@ -26,7 +26,8 @@ class Answer extends Component {
             // console.log("correct answer clicked")
             addPoint= true
             this.setState({
-                backgroundStyle: "#63cdda",
+                //backgroundStyle: "#63cdda",
+                backgroundStyle: "repeating-linear-gradient(45deg,#606dbc,#606dbc 4px,#465298 4px,#465298 8px",
                 
             })
 
@@ -35,7 +36,8 @@ class Answer extends Component {
             addPoint= false
            
             this.setState({
-                backgroundStyle: "#e66767",
+                //backgroundStyle: "#e66767",
+                backgroundStyle: "repeating-linear-gradient(45deg,#606dbc,#606dbc 4px,#465298 4px,#465298 8px",
              })
         }
 
@@ -55,7 +57,7 @@ class Answer extends Component {
 
                 
                 <div className="buttonDiv">
-                    <button className= {"answers "+ this.props.className} onClick={this.checkCorrect} style={{backgroundColor: this.state.backgroundStyle, display : this.state.display}}>{this.props.answer}</button>
+                    <button className= {"answers "+ this.props.className} onClick={this.checkCorrect} style={{background: this.state.backgroundStyle, display : this.state.display}}>{this.props.answer}</button>
                 </div>
                 
         )
