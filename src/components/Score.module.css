@@ -224,6 +224,7 @@ p{
 }
 
 .skyContainer {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,6 +237,27 @@ p{
     padding: 20px;
     margin: 10px;
 }
+
+.winnerContainer{
+  position: relative;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:none;
+  width: 300px;
+  height: 300px;
+  z-index: 201; 
+  border-radius: 50%;
+  transform: rotateZ(-45deg);
+  padding: 20px;
+  margin: 10px;
+  clip-path: circle(50% at 50% 50%);
+}
+
 
 .border {
     width: 600px;

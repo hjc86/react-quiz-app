@@ -15,7 +15,7 @@ class QuizManager extends Component {
             score: 0,
             scoreArray: [],
             carryOn: true, 
-            winner: null,
+            winner: [],
             quizFinished: false
 
         }  
@@ -33,10 +33,6 @@ class QuizManager extends Component {
                 
             })
         }
-
-        // if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
-    
-        // }
     }
     
     updateScore= (playerObj)=>{
@@ -54,14 +50,12 @@ class QuizManager extends Component {
         } 
     } 
 
-    
-    
     render() {
         return (
             <div>
-                        {this.state.questionsAnswered === 5?
-                        
-                            <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} /> :
+                        {this.state.questionsAnswered === 5 ? // 
+
+                            <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} carryOn={this.state.carryOn} /> :
                 
                             <Quiz
                             playerInfo={this.props.playerInfo} 
