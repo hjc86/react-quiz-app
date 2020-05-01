@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScoreCount/> Renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<ScoreCount/> renders correctly 1`] = `
+<div
+  className="scoreCountList"
+/>
+`;
