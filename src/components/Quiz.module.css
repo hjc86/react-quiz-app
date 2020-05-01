@@ -1,9 +1,11 @@
+
 .Bee {
     color: white;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 25px;
 }
+
 
 .quizComponent {
     display: flex;
@@ -17,13 +19,14 @@
     display: flex;
     padding: 30px;
     color: white;
-    background-color: #ffc048;
+    background-color: #95afc0; /*#ffc048*/
     border-radius: 15px;
     color: #130F40;
     font-size: 20px;
     margin: 20px;
     letter-spacing: 2px;
     text-transform: uppercase;
+
 }
 
 .quizQuestionsMapped {

@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './Score.module.css';
+import ScoreBoard from './ScoreBoard';
+import ScoreCount from './ScoreCount';
 
 
 class Score extends React.Component{
@@ -9,13 +11,32 @@ class Score extends React.Component{
             winner: " "
         }
     }
-    checkWinner = (winner) => {
-        if (this.props.scoreArray[0] > this.props.scoreArray[1])
-        {
-            console.log('user1 won', winner);
+
+    checkWinner = () => {
+
+        let winner = this.props.scoreArray.indexOf(Math.max(...this.props.scoreArray));
+
+       if (winner === 0) {
+
             this.setState({
                 winner: this.props.userName[0]
-            })
+                })
+        } else if (winner === 1) {
+            this.setState({
+                winner: this.props.userName[1]
+                })
+        } else if (winner === 2) {
+            this.setState({
+                winner: this.props.userName[2]
+                })
+        } else if (winner === 3) {
+            this.setState({
+                winner: this.props.userName[3]
+                })
+        } else {
+            this.setState({
+                winner: this.props.userName[4]
+                })
         }
     }
     componentDidMount(){
@@ -27,14 +48,27 @@ class Score extends React.Component{
 
       }
     render() {
-        console.log("username arary", this.props.userNameArray)
-        console.log("winner", this.state.winner)
+
         return(
-            <div className={styles.scoreComponent}>
+            <div className={styles.scoreComponent}> 
                 <div className={styles.scoreComponentResults}>
-                    <h1 className={styles.scoreResultsChild}>Score Board </h1>
-                    <p className={styles.scoreResultsChild}>{this.props.userName[0]} scored {this.props.scoreArray[0]}/5!</p>
-                    <p className={styles.scoreResultsChild}>{this.props.userName[1]} scored {this.props.scoreArray[1]}/5!</p>
+                    <h1 className={styles.scoreResultsChild}>The winner is:{this.state.winner} </h1>
+                    
+                    <h3 className={styles.scoreResultsChild}>Scoreboard</h3>
+                    <div className={styles.scoreGroup}>
+                        <div className={styles.scoreBoard}>  
+                            {this.props.userName.map((scoreBoard)=> (
+                            <ScoreBoard {...this.state} scoreBoard={scoreBoard}/>
+                        ))}
+                        </div>
+                        <div className={styles.scoreCount}>
+                        {this.props.scoreArray.map((scoreCount)=> (
+                            <ScoreCount {...this.state} scoreCount={scoreCount} />
+                        ))}
+                        </div>
+                    </div>
+
+                    
                 </div>
                 <div className={styles.skyContainer}>
                     <div className={styles.star}></div>
@@ -43,12 +77,19 @@ class Score extends React.Component{
                     <div className={styles.star}></div>
                     <div className={styles.star} ></div>
                 </div>
+
+
+            
                 <div className={styles.startButtonDiv}>
-                        <button className={styles.startButton} onClick={this.refreshPage}>Play Again</button>
+                        <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
                 </div>
+
 
             </div>
         )
     }
 }
+
+
 export default Score;
+
