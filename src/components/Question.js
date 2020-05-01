@@ -14,7 +14,8 @@ class Question extends Component {
             wrongAnswers: null,
             backgroundStyle: "none",
             clicked: false,
-            userAnswers : []
+            userAnswers : [],
+            questionDecode: ''
         }
     }
 
@@ -44,6 +45,7 @@ class Question extends Component {
 
         return randomisedAnswers
     }
+
     hasBeenClicked = (answerData)=>{
         this.setState({
             clicked : true,
@@ -60,9 +62,21 @@ class Question extends Component {
 
         this.props.answeredQuestions(1)
     }
+
+    decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        this.setState({
+            questionDecode: txt.value
+        })
+    }
+
     componentDidMount(){
         this.createAnswerArray()
+        this.decodeHtml(this.props.questionData.question)
     }
+
+
     render() {
                 return (
                     
