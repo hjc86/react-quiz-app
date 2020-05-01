@@ -3,22 +3,53 @@
 exports[`<Score /> Renders correctly 1`] = `ShallowWrapper {}`;
 
 exports[`<Score /> renders correctly 1`] = `
-<div>
-  <h1>
-    The winner is: 
-  </h1>
-  <p>
-    a
-     scored 
-    0
-    /5!
-  </p>
-  <p>
-    b
-     scored 
-    1
-    /5!
-  </p>
+<div
+  className="scoreComponent"
+>
+  <div
+    className="scoreComponentResults"
+  >
+    <h1
+      className="scoreResultsChild"
+    >
+      Score Board 
+    </h1>
+    <p
+      className="scoreResultsChild"
+    >
+      a
+       scored 
+      0
+      /5!
+    </p>
+    <p
+      className="scoreResultsChild"
+    >
+      b
+       scored 
+      1
+      /5!
+    </p>
+  </div>
+  <div
+    className="skyContainer"
+  >
+    <div
+      className="star"
+    />
+    <div
+      className="star"
+    />
+    <div
+      className="star"
+    />
+    <div
+      className="star"
+    />
+    <div
+      className="star"
+    />
+  </div>
   <div
     className="startButtonDiv"
   >
@@ -26,7 +57,7 @@ exports[`<Score /> renders correctly 1`] = `
       className="startButton"
       onClick={[Function]}
     >
-      Start New Quiz!
+      Play Again
     </button>
   </div>
 </div>

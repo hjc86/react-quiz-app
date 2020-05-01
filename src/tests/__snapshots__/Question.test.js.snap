@@ -3,35 +3,17 @@
 exports[`<Question /> Renders correctly 1`] = `ShallowWrapper {}`;
 
 exports[`<Question /> renders correctly 1`] = `
-<div>
+<div
+  className="questionGroup"
+>
   <div
-    style={
-      Object {
-        "border": "5px solid black",
-      }
-    }
+    className="questionTitle"
   >
     <div
-      className="questionAnswers"
+      className="questionBox"
     >
       Hippocampus is the Latin name for which marine creature?
     </div>
-  </div>
-  <div
-    className="buttonDiv"
-  >
-    <button
-      className="answers "
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "none",
-          "display": undefined,
-        }
-      }
-    >
-      Seahorse
-    </button>
   </div>
   <div
     className="buttonDiv"
@@ -63,6 +45,22 @@ exports[`<Question /> renders correctly 1`] = `
       }
     >
       Whale
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
+      Seahorse
     </button>
   </div>
   <div
