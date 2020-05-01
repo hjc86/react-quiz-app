@@ -42,8 +42,14 @@ class Question extends Component {
                 randomisedAnswers.push(array[randomIndex])
             };
         }
-
-        return randomisedAnswers
+         
+        let randomisedAnswersDecoded= randomisedAnswers.map((answer)=> {
+            let txt = document.createElement("textarea")
+            txt.innerHTML = answer
+            return txt.value
+        })
+            
+        return randomisedAnswersDecoded
     }
 
     hasBeenClicked = (answerData)=>{
