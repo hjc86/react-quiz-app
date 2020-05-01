@@ -5,21 +5,19 @@ import ScoreCount from './ScoreCount';
 
 
 class Score extends React.Component{
-    
     constructor(props){
-
         super(props)
-
         this.state={
             winner: " "
         }
     }
-    
+
     checkWinner = () => {
 
         let winner = this.props.scoreArray.indexOf(Math.max(...this.props.scoreArray));
 
        if (winner === 0) {
+
             this.setState({
                 winner: this.props.userName[0]
                 })
@@ -41,19 +39,15 @@ class Score extends React.Component{
                 })
         }
     }
-
-   
     componentDidMount(){
-        console.log("score updated ")
+        console.log("score updated")
         this.checkWinner();
     }
-
     refreshPage = () => {
         window.location.reload(false);
+
       }
-
     render() {
-
 
         return(
             <div className={styles.scoreComponent}> 
@@ -76,7 +70,6 @@ class Score extends React.Component{
 
                     
                 </div>
-
                 <div className={styles.skyContainer}>
                     <div className={styles.star}></div>
                     <div className={styles.star}></div>
@@ -85,20 +78,18 @@ class Score extends React.Component{
                     <div className={styles.star} ></div>
                 </div>
 
-                
 
+            
                 <div className={styles.startButtonDiv}>
                         <button className={styles.startButton} onClick={this.refreshPage}>Start New Quiz!</button>
                 </div>
 
-                
-                
+
             </div>
-            
-        
         )
     }
 }
+
 
 export default Score;
 

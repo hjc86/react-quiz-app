@@ -21,7 +21,7 @@ button {
   padding: 10px;
   margin: 7px;
   border-radius: 10px;
-  background-color: #f9ca24;
+  background-color: #f9ca24 //#ffdd59
 }
 
 .buttonDiv{

@@ -22,7 +22,6 @@ class QuizManager extends Component {
     }
     
     updateAnsweredQuestions=(questionsAnswered)=>{
-        console.log("quizmanger answered qs", questionsAnswered )
         this.setState({
             questionsAnswered: questionsAnswered
         })
@@ -35,16 +34,12 @@ class QuizManager extends Component {
             })
         }
 
-        if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
-        console.log("this should cause quiz to end")
-        }
+        // if(this.state.questionsAnswered===5 && this.state.playerIndex<this.props.playerInfo.userName.length-1){
+    
+        // }
     }
     
     updateScore= (playerObj)=>{
-        console.log("quizmanger score", playerObj.score)
-        console.log("quiz manger score array", this.state.scoreArray)
-        console.log("Player index",this.state.playerIndex)
-
         if(this.state.questionsAnswered === 4){
             this.setState({
                 scoreArray: [...this.state.scoreArray, playerObj.score],
@@ -52,7 +47,6 @@ class QuizManager extends Component {
              })
         }
 
-        console.log()
         if(this.state.scoreArray.length===this.props.playerInfo.userName.length){
             this.setState({
                 carryOn: false
@@ -62,27 +56,21 @@ class QuizManager extends Component {
 
     
     
-
-
     render() {
-
         return (
-
             <div>
                         {this.state.questionsAnswered === 5?
                         
-                            <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} userNameArray={this.props.playerInfo.userName[this.state.playerIndex]}/> :
-                    
-
-                            <Quiz quizData={this.props.playerInfo} 
+                            <Score scoreArray={this.state.scoreArray} userName={this.props.playerInfo.userName} /> :
+                
+                            <Quiz
                             playerInfo={this.props.playerInfo} 
                             currentPlayer={this.props.playerInfo.userName[this.state.playerIndex]} 
                             answeredQuestions={this.updateAnsweredQuestions}
                             score={this.updateScore}/>
                     
                         }
-           
-                
+
             </div>
         
         )

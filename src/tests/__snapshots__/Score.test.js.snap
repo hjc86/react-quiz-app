@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Score /> Renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Score /> renders correctly 1`] = `
+<div>
+  <h1>
+    The winner is: 
+  </h1>
+  <p>
+    a
+     scored 
+    0
+    /5!
+  </p>
+  <p>
+    b
+     scored 
+    1
+    /5!
+  </p>
+  <div
+    className="startButtonDiv"
+  >
+    <button
+      className="startButton"
+      onClick={[Function]}
+    >
+      Start New Quiz!
+    </button>
+  </div>
+</div>
+`;
