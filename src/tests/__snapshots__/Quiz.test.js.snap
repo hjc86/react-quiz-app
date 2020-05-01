@@ -2,4 +2,12 @@
 
 exports[`<Quiz/> Renders correctly 1`] = `ShallowWrapper {}`;
 
-exports[`<Quiz/> renders correctly 1`] = `"waiting for 0s round to load load"`;
+exports[`<Quiz/> renders correctly 1`] = `
+<span
+  className="Bee"
+>
+   We're BEEZZY loading 
+  0
+  's quiz 
+</span>
+`;

@@ -18,8 +18,10 @@ exports[`App renders correctly 1`] = `
         <label
           className="player"
         >
-          Player(s) : 
+          Player(s)
         </label>
+         
+        <br />
         <input
           className="bar"
           id="username"

@@ -28,6 +28,22 @@ exports[`<Question /> renders correctly 1`] = `
         }
       }
     >
+      Octopus
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "none",
+          "display": undefined,
+        }
+      }
+    >
       Dolphin
     </button>
   </div>
@@ -61,22 +77,6 @@ exports[`<Question /> renders correctly 1`] = `
       }
     >
       Seahorse
-    </button>
-  </div>
-  <div
-    className="buttonDiv"
-  >
-    <button
-      className="answers "
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "none",
-          "display": undefined,
-        }
-      }
-    >
-      Octopus
     </button>
   </div>
 </div>

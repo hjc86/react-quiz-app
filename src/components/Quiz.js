@@ -2,7 +2,7 @@ import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
 import Question from './Question';
-var sanitizeHtml = require("sanitize-html");
+
 
 class Quiz extends React.Component {
 
