@@ -15,7 +15,7 @@ class Question extends Component {
             backgroundStyle: "none",
             clicked: false,
             userAnswers : [],
-            questionDecode: ''
+            questionDecoded: ''
         }
     }
 
@@ -67,7 +67,7 @@ class Question extends Component {
         var txt = document.createElement("textarea");
         txt.innerHTML = html;
         this.setState({
-            questionDecode: txt.value
+            questionDecoded: txt.value
         })
     }
 
@@ -90,8 +90,8 @@ class Question extends Component {
 
                                 <div className={styles.questionBox}>
                                             
-                                    {this.props.questionData.question}   
-        
+                                    {this.state.questionDecoded}
+
                                 </div>
                             </div>
                             {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
