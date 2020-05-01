@@ -59,9 +59,6 @@ class Question extends Component {
         }
 
         this.props.answeredQuestions(1)
-        //console.log(“player score in qusestion componet”, this.state.playerScore)
-        // let scoreUpdate = answerData.addPoint ? this.1: 0
-        // this.props.currentScore(scoreUpdate)
     }
     componentDidMount(){
         this.createAnswerArray()

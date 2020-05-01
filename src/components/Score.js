@@ -47,7 +47,10 @@ class Score extends React.Component{
         this.checkWinner()
     }
 
-    
+    refreshPage = () => {
+        window.location.reload(false);
+
+      }
 
     render() {
 

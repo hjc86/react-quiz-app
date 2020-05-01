@@ -9,7 +9,7 @@ class Answer extends Component {
         super(props)
 
         this.state={
-            backgroundStyle: "none",
+            backgroundStyle: "#ffdd59",
             chosen : false 
         }
 
