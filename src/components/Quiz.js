@@ -2,6 +2,7 @@ import styles from './Quiz.module.css';
 import React from 'react';
 import Score from'./Score'
 import Question from './Question';
+var sanitizeHtml = require("sanitize-html");
 
 class Quiz extends React.Component {
 
@@ -46,7 +47,10 @@ class Quiz extends React.Component {
     const categoryNumber = userData.category;
     const difficulty = userData.difficulty;
 
-    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple`);
+
+    // header('content-type:text/html;charset=utf-8');
+    const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple&dencode=base64`)
+    
     const data = await apiCall.json();
 
     this.setState({

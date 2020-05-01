@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes renders correctly 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="formDiv"
+    >
+      <div
+        className="formContainer"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <label
+            className="player"
+          >
+            Player(s) : 
+          </label>
+          <input
+            className="bar"
+            id="username"
+            name="username"
+            placeholder="insert player name(s)"
+            required={true}
+            type="text"
+          />
+          <p
+            className="diff"
+          >
+            Select Level
+          </p>
+          <label
+            className="text"
+          >
+            Easy 
+          </label>
+          <input
+            id="easy"
+            name="difficulty"
+            required={true}
+            type="radio"
+            value="easy"
+          />
+          <label
+            className="text"
+          >
+            Medium 
+          </label>
+          <input
+            id="medium"
+            name="difficulty"
+            type="radio"
+            value="medium"
+          />
+          <label
+            className="text"
+          >
+            Difficult 
+          </label>
+          <input
+            id="difficult"
+            name="difficulty"
+            type="radio"
+            value="hard"
+          />
+          <br />
+          <div
+            className="categoryDiv"
+          >
+            <select
+              id="category"
+              name="category"
+              required={true}
+              value={null}
+            >
+              <option
+                name="Please Select Category"
+                value=""
+              >
+                 Please Select Category
+              </option>
+              <option
+                name="Celebrity"
+                value="26"
+              >
+                Celebrity
+              </option>
+              <option
+                name="Mythology"
+                value="20"
+              >
+                Mythology
+              </option>
+              <option
+                name="History"
+                value="23"
+              >
+                History
+              </option>
+              <option
+                name="Animals"
+                value="27"
+              >
+                Animals
+              </option>
+              <option
+                name="Science & Computers"
+                value="18"
+              >
+                Science & Computers
+              </option>
+            </select>
+          </div>
+          <div
+            className="instructions"
+          >
+            <span
+              className="instructHead"
+            >
+              Player Instructions
+            </span>
+            <span
+              className="instruct"
+            >
+              1 : Insert Player Name(s) add " , " for multiplayer
+            </span>
+            <span
+              className="instruct"
+            >
+              2 : Each player will have a set of 5 questions 
+            </span>
+            <span
+              className="instruct"
+            >
+              See who's the Whiz in this Quiz!
+            </span>
+            <em
+              className="instruct"
+            >
+              Whuiz the Quiz App
+            </em>
+          </div>
+          <div
+            className="buttonDiv"
+          >
+            <button
+              className="playbutton"
+              type="submit"
+            >
+              Play
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

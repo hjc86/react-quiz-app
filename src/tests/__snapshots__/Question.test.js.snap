@@ -28,7 +28,7 @@ exports[`<Question /> renders correctly 1`] = `
         }
       }
     >
-      Octopus
+      Dolphin
     </button>
   </div>
   <div
@@ -44,7 +44,7 @@ exports[`<Question /> renders correctly 1`] = `
         }
       }
     >
-      Dolphin
+      Whale
     </button>
   </div>
   <div
@@ -76,7 +76,7 @@ exports[`<Question /> renders correctly 1`] = `
         }
       }
     >
-      Whale
+      Octopus
     </button>
   </div>
 </div>
