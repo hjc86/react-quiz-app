@@ -1,5 +1,5 @@
 # react-quiz-app
-## Project App Name : Buzz App
+## Project App Name : Whuiz
 ## Helder, Rosie, James, Susan
 
 
