@@ -17,7 +17,7 @@ class App extends React.Component {
   getUserData = async (playerData) =>{
 
    await this.setState({
-      userName: playerData.userName.split(','),
+      userName: playerData.userName.split(',').filter(el=> el!==""),
       difficulty: playerData.difficulty,
       category: playerData.category,
       categoryName: playerData.categoryName
