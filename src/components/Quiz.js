@@ -64,11 +64,7 @@ class Quiz extends React.Component {
   
   }
   
-  decodeHtml(html) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value;
-}
+ 
 
   render() {
 
@@ -85,7 +81,7 @@ class Quiz extends React.Component {
               
               <div className="quizQuestionsMapped">
                 {this.state.quizInstance.map((questionItem) => 
-                                  
+
                   <Question 
                     questionData={questionItem} 
                     latestPoint={this.updateScore} 
