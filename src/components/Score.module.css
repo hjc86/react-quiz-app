@@ -1,19 +1,20 @@
-
-* {
-    box-sizing: border-box;
-    background-color:  #130F40;
-    font-family: 'Nunito Sans', sans-serif;
+/* * {
+  box-sizing: border-box;
+  background-color:  #130F40;
+  font-family: 'Nunito Sans', sans-serif;
+} */
+  
 h1{
-text-transform: uppercase;
-letter-spacing: 3px;
-font-weight: 100px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 100px;
 }
 
-p {
-text-transform: uppercase;
-font-size: 16px;
-letter-spacing: 3px;
-font-weight: 100px;
+p{
+  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: 100px;
 }
 
 .scoreComponent {
@@ -25,7 +26,7 @@ font-weight: 100px;
     position: relative;
     height: 100vh /*100%*/;
     margin: 0;
-    /* background-color: #95afc0; */
+    /*background-color: #95afc0; */
     color: #130F40;
     height: 100%;
 }
