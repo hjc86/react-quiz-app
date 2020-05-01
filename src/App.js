@@ -17,11 +17,10 @@ class App extends React.Component {
   getUserData = async (playerData) =>{
 
    await this.setState({
-      userName: playerData.userName.split(','),
+      userName: playerData.userName.split(',').filter(el=> el!==""),
       difficulty: playerData.difficulty,
       category: playerData.category,
       categoryName: playerData.categoryName
-
     })
     
   }
@@ -29,12 +28,12 @@ class App extends React.Component {
 render() {
       return (
         <div className="container">
+            
+          { this.state.userName === null? 
+            <UserInfo playerData={this.getUserData} /> : 
+            <QuizManager playerInfo={this.state} />
+          }
           
-        { this.state.userName === null? 
-          <UserInfo playerData={this.getUserData} /> : 
-          <QuizManager playerInfo={this.state} />
-        }
-        
         </div>
       );
     }

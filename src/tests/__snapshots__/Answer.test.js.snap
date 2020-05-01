@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Answer /> Renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Answer /> renders correctly 1`] = `
+<div
+  className="buttonDiv"
+>
+  <button
+    className="answers undefined"
+    onClick={[Function]}
+    style={
+      Object {
+        "background": "#ffdd59",
+        "display": undefined,
+      }
+    }
+  />
+</div>
+`;

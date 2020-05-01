@@ -4,47 +4,36 @@ import UserInfo from "../components/UserInfo";
 import renderer from 'react-test-renderer';
 import ReactDOM from "react-dom";
 
-// it("<UserInfo/> renders as expected",() =>{
-//     const 
-
-
-// })
-
-
-// it('should render component renders as expected', () => {// makes sure that any changes in the component are actually wanted
-//     const tree = renderer
-//       .create(<UserInfo/>)
-//       .toJSON();
-//     expect(tree).toMatchSnapshot()
-// });
-
-
-
-// it('should mount component using enzyme',()=>{
-//     const wrapper = mount(<Search/>)
-//   })
-
 describe("<UserInfo />", () => {
-
-
-  it('renders 4  input elements in form', () => {
-    const wrapper = shallow(<UserInfo/>)
+  
+  let essentialProps ={
+    UserInfo:{
+      userName: "Tom",
+      difficulty: "Hard",
+      category: "1",
+      categoryName: "Animals"
+    },
+    playerData: jest.fn()
+  }
+ 
+  let componentWithProps = <UserInfo {...essentialProps}/>
+  let wrapper;
+  
+  beforeEach(() => wrapper = shallow(componentWithProps));
+  beforeEach(() => wrapper.setState({questionsAnswered: 5}))
+  
+  it('should render 4 input elements', () => {
+    const wrapper = shallow(componentWithProps)
     expect(wrapper.find('input').length).toEqual(4);
   })
 
-
   it('username and difficult should be set to required',() =>{
-    const wrapper = shallow(<UserInfo/>)
+    const wrapper = shallow(componentWithProps)
     expect(wrapper.find('input').filterWhere((item) => item.prop('required') === true)).toHaveLength(2)
   })
   
-
-
-  it('should call getUserData with category, username and difficult on form submit ',()=>{
-    // we need to create a jest function that mocks/fakes the prop call back that is sent with search component; we dont have access to this so need to mock it!
-    const essentialProps ={
-      userData: jest.fn()
-    }
+  it('should call getUserData with category, username, categoryName, and difficulty on form submit ',()=>{
+    // we need to create a jest function that mocks/fakes the prop call back that is sent with <UserInfo />; we dont have access to this so need to mock it!
 
     // do a shallow render as this is all that is needed  
     const wrapper = mount(<UserInfo {...essentialProps} />)//, {disableLifecycleMethods: true})
@@ -57,18 +46,17 @@ describe("<UserInfo />", () => {
     
     // set instance of inputs to values to test submission of user data
     wrapper.find("#username").instance().value = "Helder"
-    wrapper.find("#category").instance().value = 1
+    wrapper.find("#category").instance().value = 27
+    wrapper.find({value:"27"}).instance().checked =true
     wrapper.find({value:"easy"}).instance().checked = true
     
-    //simiutalte form submiisson
+    //simulate form submission
     wrapper.find('form').simulate('submit',{
       preventDefault:()=>{}
     })
 
     // we then expect that the searchTerm prop callback will be called with the value ("london in this case") we sent on submit of form
-    expect(essentialProps.userData).toHaveBeenCalledWith({userName:"Helder", category: "1", difficulty:"easy"})
-
-
+    expect(essentialProps.playerData).toHaveBeenCalledWith({userName:"Helder", category: "27", difficulty:"easy", categoryName:"Animals"})
   })
 
-}
+})

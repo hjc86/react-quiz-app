@@ -47,7 +47,6 @@ class Quiz extends React.Component {
     const categoryNumber = userData.category;
     const difficulty = userData.difficulty;
 
-
     // header('content-type:text/html;charset=utf-8');
     const apiCall = await fetch(`https://opentdb.com/api.php?amount=5&category=${categoryNumber}&difficulty=${difficulty}&type=multiple&dencode=base64`)
     
@@ -65,9 +64,9 @@ class Quiz extends React.Component {
   
   }
   
+ 
 
   render() {
-    let categoryName="PLACEHOLDER"
 
     return (
       this.state.quizInstance === null ? 
@@ -82,24 +81,18 @@ class Quiz extends React.Component {
               
               <div className="quizQuestionsMapped">
                 {this.state.quizInstance.map((questionItem) => 
+
                   <Question 
                     questionData={questionItem} 
                     latestPoint={this.updateScore} 
-                    answeredQuestions={this.updateAnsweredQuestions}/>)
-                  }
+                    answeredQuestions={this.updateAnsweredQuestions}/>
+                )}
               </div>
               
         
             
             </div>
-          
-    
-        // <div className={styles.quizDiv}>
-        // <h3 className={styles.question}>Question : {this.props.questions}</h3>
 
-        // {/* // display answers - find a way to randomise and space the answers out in button form */}
-        // <h3 className={styles.question}>Answer : {this.props.answers} {this.props.incorrect}</h3>
-        // </div>
     )
   }
 }

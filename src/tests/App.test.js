@@ -7,7 +7,8 @@ import UserInfo from '../components/UserInfo'
 import QuizManager from '../containers/QuizManager'
 
 
-describe(App, () => {
+describe("<App/>", () => {
+    
     it('mounts to DOM', () => {
         const div = document.createElement('div');
         ReactDOM.render(<App />, div);

@@ -20,8 +20,8 @@ describe("<Score />", () => {
 
     beforeEach(() => wrapper = shallow(componentWithProps));
 
-    it('should render a single <div />',()=>{
-        expect(wrapper.find('div').length).toEqual(2);
+    it('should render a ten <div />',()=>{
+        expect(wrapper.find('div').length).toEqual(10);
     })
 
     it('mounts to DOM', () => {

@@ -23,7 +23,23 @@ exports[`<Question /> renders correctly 1`] = `
       onClick={[Function]}
       style={
         Object {
-          "backgroundColor": "none",
+          "background": "#ffdd59",
+          "display": undefined,
+        }
+      }
+    >
+      Seahorse
+    </button>
+  </div>
+  <div
+    className="buttonDiv"
+  >
+    <button
+      className="answers "
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "#ffdd59",
           "display": undefined,
         }
       }
@@ -39,7 +55,7 @@ exports[`<Question /> renders correctly 1`] = `
       onClick={[Function]}
       style={
         Object {
-          "backgroundColor": "none",
+          "background": "#ffdd59",
           "display": undefined,
         }
       }
@@ -55,28 +71,12 @@ exports[`<Question /> renders correctly 1`] = `
       onClick={[Function]}
       style={
         Object {
-          "backgroundColor": "none",
+          "background": "#ffdd59",
           "display": undefined,
         }
       }
     >
       Whale
-    </button>
-  </div>
-  <div
-    className="buttonDiv"
-  >
-    <button
-      className="answers "
-      onClick={[Function]}
-      style={
-        Object {
-          "backgroundColor": "none",
-          "display": undefined,
-        }
-      }
-    >
-      Seahorse
     </button>
   </div>
 </div>

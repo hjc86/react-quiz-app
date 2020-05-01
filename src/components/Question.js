@@ -14,7 +14,8 @@ class Question extends Component {
             wrongAnswers: null,
             backgroundStyle: "none",
             clicked: false,
-            userAnswers : []
+            userAnswers : [],
+            questionDecoded: ''
         }
     }
 
@@ -44,6 +45,7 @@ class Question extends Component {
 
         return randomisedAnswers
     }
+
     hasBeenClicked = (answerData)=>{
         this.setState({
             clicked : true,
@@ -60,9 +62,21 @@ class Question extends Component {
 
         this.props.answeredQuestions(1)
     }
+
+    decodeHtml(html) {
+        var txt = document.createElement("textarea");
+        txt.innerHTML = html;
+        this.setState({
+            questionDecoded: txt.value
+        })
+    }
+
     componentDidMount(){
         this.createAnswerArray()
+        this.decodeHtml(this.props.questionData.question)
     }
+
+
     render() {
                 return (
                     
@@ -76,11 +90,10 @@ class Question extends Component {
 
                                 <div className={styles.questionBox}>
                                             
-                                    {this.props.questionData.question}   
-        
+                                    {this.state.questionDecoded}
+
                                 </div>
                             </div>
-                            {/* if an aswer had been clicked then make this section unclicable and change style to opaque */}
                             {this.state.randomisedAnswers.map((answer)=> (
                             <Answer {...this.state} answer={answer} clicked={this.hasBeenClicked} className={this.state.clicked ? "inactive": ""} />
                             ))}
