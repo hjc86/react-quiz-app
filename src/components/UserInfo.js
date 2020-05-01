@@ -11,7 +11,7 @@ class UserInfo extends React.Component{
         this.state = {
             userName : null,
             difficulty: "",
-            category: "",
+            category: undefined,
             categoryName: ""
         }
    }

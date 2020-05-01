@@ -78,7 +78,6 @@ exports[`Routes renders correctly 1`] = `
               id="category"
               name="category"
               required={true}
-              value=""
             >
               <option
                 name="Please Select Category"
