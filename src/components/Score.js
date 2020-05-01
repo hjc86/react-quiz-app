@@ -42,15 +42,6 @@ class Score extends React.Component{
         }
     }
 
-
-    // getPlayerItems = () => { 
-    //     this.props.userName.map((userNames)=> 
-    //         userNames);
-    //     return (
-    //         this.userNames
-    //     )
-    // }
-
    
     componentDidMount(){
         console.log("score updated ")
@@ -82,16 +73,6 @@ class Score extends React.Component{
                         ))}
                         </div>
                     </div>
-
-                   {/* <div className="scoreBoard">
-                       <ul className={styles.scoreResultsChild}>Scoreboard:
-                          <li className={styles.scoreResultsChild}>{this.props.userName[0]} : {this.props.scoreArray[0]}</li> 
-                          <li className={styles.scoreResultsChild}>{this.props.userName[1]} : {this.props.scoreArray[1]}</li> 
-                          <li className={styles.scoreResultsChild}>{this.props.userName[2]} : {this.props.scoreArray[2]}</li> 
-                          <li className={styles.scoreResultsChild}>{this.props.userName[3]} : {this.props.scoreArray[3]}</li> 
-                          <li className={styles.scoreResultsChild}>{this.props.userName[4]} : {this.props.scoreArray[4]}</li> 
-                        </ul>
-                   </div> */}
 
                     
                 </div>
